@@ -1,6 +1,6 @@
 import * as S from "./main.style";
 
-export default function Main() {
+export default function MainUI(props) {
   return (
     <S.Wrapper>
       <S.Header>
@@ -11,7 +11,7 @@ export default function Main() {
           </S.Logo>
           <S.Menu1>메인</S.Menu1>
           <S.Menu1>마켓</S.Menu1>
-          <S.Menu1>커뮤니티</S.Menu1>
+          <S.Menu1 onClick={props.onClickMoveToBoardList}>커뮤니티</S.Menu1>
         </S.Menu>
         <S.Dropdown />
       </S.Header>
@@ -31,8 +31,8 @@ export default function Main() {
                 <S.UserWrapper>
                   <S.UserImg src="/user.png"></S.UserImg>
                   <S.User>조벼리</S.User>
-								</S.UserWrapper>
-								
+                </S.UserWrapper>
+
                 <S.PickWrapper>
                   <S.PickImg />
                   <S.PickCount>20</S.PickCount>
