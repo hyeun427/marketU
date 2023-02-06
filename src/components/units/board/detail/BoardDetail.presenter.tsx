@@ -9,7 +9,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
       <DS.Wrapper>
         <DS.ProfileWrapper>
           <DS.Profile>
-            <DS.Photo src="/img/profile.png" />
+            <DS.Photo src="/profile.png" />
 
             <DS.ProfileDetail>
               <DS.Writer>{props.data?.fetchBoard?.writer}</DS.Writer>
@@ -18,12 +18,12 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
           </DS.Profile>
 
           <DS.IconWrapper>
-            <DS.Share src="/img/share.png" />
+            <DS.Share src="/share.png" />
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
             >
-              <DS.Spot src="/img/spot.png" />
+              <DS.Spot src="/spot.png" />
             </Tooltip>
           </DS.IconWrapper>
         </DS.ProfileWrapper>

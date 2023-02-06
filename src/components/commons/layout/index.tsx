@@ -21,7 +21,7 @@ export default function Layout(props: ILayoutProps) {
 
   return (
     <>
-      {!isHiddenLayout ? (
+      {/* {!isHiddenLayout ? (
         <>
           <LayoutHeader />
 
@@ -31,7 +31,10 @@ export default function Layout(props: ILayoutProps) {
         <>
           <Body>{props.children}</Body>
         </>
-      )}
+      )} */}
+      <LayoutHeader />
+
+      <Body>{props.children}</Body>
     </>
   );
 }

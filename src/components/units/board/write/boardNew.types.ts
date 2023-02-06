@@ -35,6 +35,7 @@ export interface IBoardWriteUIProps {
   onChangeFileUrls: (fileUrls: string, index: number) => void;
   onClickSubmit: () => void;
   onClickUpdate: () => void;
+  onClickCancel: () => void;
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
   isOpen: boolean;

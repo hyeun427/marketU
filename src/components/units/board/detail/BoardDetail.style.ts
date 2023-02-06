@@ -41,11 +41,7 @@ export const ProfileDetail = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-export const Writer = styled.div`
-  /* font-style: normal;
-  font-weight: 500;
-  font-size: 24px; */
-`;
+export const Writer = styled.div``;
 
 export const Date = styled.div`
   color: #828282;
@@ -71,11 +67,6 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  /* font-family: "Noto Sans CJK KR";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 53px; */
   padding-top: 80px;
 `;
 
@@ -129,7 +120,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: black;
+    background-color: #ffc6ce;
     color: white;
   }
 `;
