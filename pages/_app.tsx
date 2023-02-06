@@ -9,10 +9,11 @@ import {
   ApolloProvider,
   InMemoryCache,
 } from "@apollo/client";
+import Layout from "../src/components/commons/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
-    uri: "http://backend11.codebootcamp.co.kr/graphql",
+    uri: "http://backend10.codebootcamp.co.kr/graphql",
   });
 
   const client = new ApolloClient({
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Global styles={globalStyles} />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ApolloProvider>
   );
 }

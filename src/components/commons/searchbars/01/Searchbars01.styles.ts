@@ -13,7 +13,7 @@ export const Searchbar = styled.div`
 `;
 
 export const FireFilledIcon = styled(FireFilled)`
-  color: #5729ff;
+  color: #ffc6ce;
   font-size: 30px;
   cursor: pointer;
 

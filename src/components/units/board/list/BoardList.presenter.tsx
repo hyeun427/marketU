@@ -50,7 +50,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
       <Ls.Footer>
         <Paginations01 refetch={props.refetch} count={props.count} />
         <Ls.Button onClick={props.onClickMoveToBoardNew}>
-          <Ls.PencilIcon src="img/write.png" />
+          <Ls.PencilIcon src="write.png" />
           게시물 등록하기
         </Ls.Button>
       </Ls.Footer>

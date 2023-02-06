@@ -19,7 +19,7 @@ export const Row = styled.div`
   border-bottom: 1px solid gray;
 
   :hover {
-    color: violet;
+    color: #ffc6ce;
   }
 `;
 
@@ -70,7 +70,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: #f5f2fc;
+    background-color: #ffc6ce;
   }
 `;
 export const PencilIcon = styled.img``;
