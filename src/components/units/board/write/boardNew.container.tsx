@@ -220,6 +220,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }, [props.data]);
 
+  const onClickCancel = () => {
+    router.back();
+  };
+
   return (
     <BoardWriteUI
       isActive={isActive}
@@ -245,6 +249,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       address={address}
       addressDetail={addressDetail}
       fileUrls={fileUrls}
+      onClickCancel={onClickCancel}
     />
   );
 }

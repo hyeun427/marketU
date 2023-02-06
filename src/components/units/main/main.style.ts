@@ -4,8 +4,8 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 
 export const Wrapper = styled.div`
   width: 100%;
+  background-color: #f5f5f5;
 `;
-
 
 export const Banner = styled.div`
   height: 800px;

@@ -6,9 +6,8 @@ export const Header = styled.div`
   justify-content: space-between;
   width: auto;
   height: 50px;
-  margin-left: 20px;
-
-  background-color: palegoldenrod;
+  padding-left: 20px;
+  border-bottom: 1px solid #c4c4c4;
 `;
 
 export const Menu = styled.div`
@@ -48,12 +47,3 @@ export const Dropdown = styled(MenuIcon)`
   margin-top: 7px;
   cursor: pointer;
 `;
-
-// export const Logo = styled.img`
-//   cursor: pointer;
-// `;
-
-// export const Button = styled.button`
-//   margin: 5px;
-//   cursor: pointer;
-// `;

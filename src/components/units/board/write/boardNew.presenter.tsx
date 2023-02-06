@@ -123,6 +123,9 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           >
             {props.isEdit ? "수정하기" : "등록하기"}
           </S.SubmitButton>
+          <S.CancelButton onClick={props.onClickCancel}>
+            취소하기
+          </S.CancelButton>
         </S.ButtonWrapper>
       </S.Wrapper>
     </>
