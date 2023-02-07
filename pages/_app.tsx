@@ -10,6 +10,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import Layout from "../src/components/commons/layout";
+import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
@@ -22,12 +23,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    <RecoilRoot>
+      <ApolloProvider client={client}>
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloProvider>
+    </RecoilRoot>
   );
 }
 
