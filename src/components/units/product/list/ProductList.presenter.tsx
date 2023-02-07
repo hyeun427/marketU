@@ -27,7 +27,7 @@ export default function ProductListUI(props) {
           </S.ChoiceShow>
           <S.SearchWrapper>
             <S.SearchBox>
-              <S.SearchImg src="/main/search.png" />
+              <S.SearchImg src="/ProductList/search.png" />
               <S.SearchInput />
             </S.SearchBox>
             <S.SearchDate>날짜 선택</S.SearchDate>
@@ -73,11 +73,11 @@ export default function ProductListUI(props) {
                       </S.ItemListDetailRemarks>
                       <S.ItemListDetailTags>{el.tags}</S.ItemListDetailTags>
                       <S.ItemListDetailBottom>
-                        <S.ItemListDetailSellerIcon src="/main/profile.png" />
+                        <S.ItemListDetailSellerIcon src="/ProductList/profile.png" />
                         <S.ItemListDetailSeller>
                           {el.seller.name}
                         </S.ItemListDetailSeller>
-                        <S.ItemListDetailPickedIcon src="/main/pick.png" />
+                        <S.ItemListDetailPickedIcon src="/ProductList/pick.png" />
                         <S.ItemListDetailPickedCount>
                           {el.pickedCount}
                         </S.ItemListDetailPickedCount>
@@ -85,7 +85,7 @@ export default function ProductListUI(props) {
                     </S.ItemListDetail>
                   </S.ItemInfo>
                   <S.ItemListPrice>
-                    <S.WonIcon src="/main/won.png" />
+                    <S.WonIcon src="/ProductList/won.png" />
                     {`${el.price}원`}
                   </S.ItemListPrice>
                 </S.ItemListRow>

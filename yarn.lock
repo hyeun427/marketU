@@ -2432,6 +2432,11 @@
     "@babel/runtime" "^7.8.7"
     "csstype" "^3.0.2"
 
+"dompurify@^2.4.3":
+  "integrity" "sha512-q6QaLcakcRjebxjg8/+NP+h0rPfatOgOzc46Fst9VAA3jF2ApfKBNKMzdP4DYTqtUMXSCd5pRS/8Po/OmoCHZQ=="
+  "resolved" "https://registry.npmjs.org/dompurify/-/dompurify-2.4.3.tgz"
+  "version" "2.4.3"
+
 "dot-case@^3.0.4":
   "integrity" "sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w=="
   "resolved" "https://registry.npmjs.org/dot-case/-/dot-case-3.0.4.tgz"
