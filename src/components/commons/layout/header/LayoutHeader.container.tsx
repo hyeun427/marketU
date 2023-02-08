@@ -12,6 +12,10 @@ export default function LayoutHeader() {
     router.push("/boards");
   };
 
+  const onClickMoveToMarket = () => {
+    router.push("/products");
+  };
+
   const onClickLogin = () => {
     router.push("/login");
   };
@@ -20,6 +24,7 @@ export default function LayoutHeader() {
     <LayoutHeaderUI
       onClickLogo={onClickLogo}
       onClickMoveToBoardList={onClickMoveToBoardList}
+      onClickMoveToMarket={onClickMoveToMarket}
       onClickLogin={onClickLogin}
     />
   );

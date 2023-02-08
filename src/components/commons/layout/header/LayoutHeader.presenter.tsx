@@ -18,7 +18,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
           <LogoImg src="ponyo.png" />
         </Logo>
         <Menu1 onClick={props.onClickLogo}>메인</Menu1>
-        <Menu1>마켓</Menu1>
+        <Menu1 onClick={props.onClickMoveToMarket}>마켓</Menu1>
         <Menu1 onClick={props.onClickMoveToBoardList}>커뮤니티</Menu1>
       </Menu>
       <Dropdown />
