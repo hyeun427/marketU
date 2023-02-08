@@ -14,6 +14,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@graphql-codegen/cli": "^2.16.5",
+    "@hookform/resolvers": "^2.9.10",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
     "@next/font": "13.1.2",
@@ -32,11 +33,14 @@
     "react": "18.2.0",
     "react-daum-postcode": "^3.1.1",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.1",
     "react-infinite-scroller": "^1.2.6",
     "react-player": "^2.11.0",
+    "react-quill": "^2.0.0",
     "react-slick": "^0.29.0",
     "recoil": "^0.7.6",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@graphql-codegen/typescript": "^2.8.8",
