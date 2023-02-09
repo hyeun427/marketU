@@ -3,4 +3,6 @@ export interface ILayoutHeaderProps {
   onClickMoveToBoardList: () => void;
   onClickMoveToMarket: () => void;
   onClickLogin: () => void;
+  onClickLogout: () => void;
+  onClickSignin: () => void;
 }
