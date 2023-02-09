@@ -9,7 +9,6 @@ export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordSame, setPasswordSame] = useState("");
 
   const [emailCheck, setEmailCheck] = useState(false);
   const [passwordCheck, setPasswordCheck] = useState(false);
@@ -40,6 +39,7 @@ export default function SignInPage() {
       setEmailCheckError("");
       setEmailCheck(true);
     } else if (emailReg.test(email) === false) {
+      setEmailCheckError("이메일 형식이 맞지 않습니다.");
       setEmailCheck(false);
     }
   };
@@ -54,14 +54,16 @@ export default function SignInPage() {
 
   // 비밀번호 입력
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-    if (event.target.value !== "") {
+    let pw1 = document.getElementById("pw").value;
+    setPassword(pw1);
+    if (pw1 !== "") {
       setPasswordError("");
     }
     if (passwordReg.test(password) === true) {
       setPasswordCheckError("");
       setPasswordCheck(true);
     } else if (passwordReg.test(password) === false) {
+      setPasswordCheckError("비밀번호 형식이 맞지 않습니다.");
       setEmailCheck(false);
     }
   };
@@ -71,6 +73,7 @@ export default function SignInPage() {
     let pw2 = document.getElementById("pwcheck").value;
     if (pw2 === password) {
       setPasswordSameCheckError("");
+      setPasswordCheck(true);
     } else if (pw2 !== password) {
       setPasswordSameCheckError("비밀번호가 일치하지 않습니다.");
     }
@@ -96,23 +99,8 @@ export default function SignInPage() {
     if (password === "") {
       setPasswordError("비밀번호는 필수사항입니다");
     }
-    // 이메일 형식 검사 - 형식이 맞지 않을때, 에러메세지 보여줌
-    if (emailReg.test(email) === false) {
-      setEmailCheckError("이메일 형식이 맞지 않습니다.");
-    }
-    // 비밀번호 형식 검사 - 형식이 맞지 않을때, 에러메세지 보여줌
-    if (passwordReg.test(password) === false) {
-      setPasswordCheckError("비밀번호 형식이 맞지 않습니다.");
-    }
-    console.log("1");
-    if (
-      email !== "" &&
-      name !== "" &&
-      password !== "" &&
-      emailCheck === true &&
-      passwordCheck === true &&
-      passwordSameCheckError === ""
-    ) {
+
+    {
       try {
         await createUser({
           variables: {
