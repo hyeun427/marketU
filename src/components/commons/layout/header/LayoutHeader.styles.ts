@@ -41,7 +41,7 @@ export const Menu1 = styled.div`
   cursor: pointer;
 `;
 
-export const Dropdown = styled(MenuIcon)`
+export const DropdownImg = styled(MenuIcon)`
   width: 70px;
   height: 35px;
   margin-top: 7px;
