@@ -1,11 +1,11 @@
-import { useMutation } from "@apollo/client";
+import { useApolloClient, useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useCallback, useState } from "react";
 import LogInUI from "./logIn.presenter";
-import { LOGIN_USER } from "./logIn.queries";
+import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./logIn.queries";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, userInfoState } from "../../../commons/store";
 
 export default function LogInPage() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,9 @@ export default function LogInPage() {
   const [passwordError, setPasswordError] = useState("");
 
   const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setUserInfo] = useRecoilState(userInfoState);
   const [loginUser] = useMutation(LOGIN_USER);
+  const client = useApolloClient();
   const router = useRouter();
 
   // 이메일 입력, 유효성 검사
@@ -62,8 +64,24 @@ export default function LogInPage() {
         });
         const accessToken = result.data.loginUser.accessToken;
         setAccessToken(accessToken);
-        // 로그인 후 이동하는 페이지 나중에 주소 바꿔주기
-        router.push("./products");
+
+        // 유저정보 받아오기
+        const resultUserInfo = await client.query({
+          query: FETCH_USER_LOGGED_IN,
+          context: {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          },
+        });
+
+        const userInfo = {
+          email: resultUserInfo.data.fetchUserLoggedIn.email,
+          name: resultUserInfo.data.fetchUserLoggedIn.name,
+        };
+        setUserInfo(userInfo);
+
+        router.back();
         Modal.success({
           content: "로그인이 성공하였습니다.",
         });
@@ -75,7 +93,6 @@ export default function LogInPage() {
 
   // 회원가입 버튼 클릭
   const onClickSigin = () => {
-    // 회원가입페이지로 주소 바꿔주기
     router.push("./signIn");
   };
 

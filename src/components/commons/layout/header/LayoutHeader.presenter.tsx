@@ -39,7 +39,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
           <Menu>
             <Logo onClick={props.onClickLogo}>
               <LogoTitle>마켓 U</LogoTitle>
-              <LogoImg src="ponyo.png" />
+              <LogoImg src="/img/logo/ponyo.png" />
             </Logo>
             <Menu1 onClick={props.onClickLogo}>메인</Menu1>
             <Menu1 onClick={props.onClickMoveToMarket}>마켓</Menu1>
@@ -48,7 +48,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
           </Menu>
           <Detail>
             <User>{data?.fetchUserLoggedIn.name}님 환영합니다</User>
-            <User>{data?.fetchUserLoggedIn.userPoint.amount}P</User>
+            <User>{data?.fetchUserLoggedIn.userPoint?.amount}P</User>
             <Button>장바구니</Button>
 
             <SignUpButton onClick={props.onClickLogout}>로그아웃</SignUpButton>
@@ -59,7 +59,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
           <Menu>
             <Logo onClick={props.onClickLogo}>
               <LogoTitle>마켓 U</LogoTitle>
-              <LogoImg src="ponyo.png" />
+              <LogoImg src="/img/logo/ponyo.png" />
             </Logo>
             <Menu1 onClick={props.onClickLogo}>메인</Menu1>
             <Menu1 onClick={props.onClickMoveToMarket}>마켓</Menu1>

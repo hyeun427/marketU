@@ -73,7 +73,6 @@ export const Button = styled.button`
     background-color: #ffc6ce;
   }
 `;
-export const PencilIcon = styled.img``;
 
 export const TextToken = styled.span`
   color: ${(props: ITextTokenProps) => (props.isMatched ? "red" : "black")};

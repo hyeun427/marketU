@@ -6,7 +6,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
     <S.Wrapper>
       {!props.isEdit && (
         <>
-          <S.PencilIcon src="/img/pencil.png" />
+          <S.PencilIcon src="/img/icon/pencil.png" width={"20"} />
           <span>댓글</span>
         </>
       )}

@@ -16,7 +16,8 @@ const styles = {
   outlineWhiteArrow: css`
     max-width: 242px;
     width: 100%;
-    background-color: #fff;
+
+    background-color: #ffc6ce;
     border: 3px solid #000000;
     transition: all ease 0.5s;
 

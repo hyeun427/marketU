@@ -59,12 +59,7 @@ export default function UseditemsISold(props: {
                         el.images.filter((e: any) => e !== "")[0]
                       }`}
                     />
-                  )) || (
-                    <S.NoImage
-                      src="/img/mark/mark_no_image.svg"
-                      alt="NoImage"
-                    />
-                  )}
+                  )) || <S.NoImage src="/img/icon/noImage.png" alt="NoImage" />}
                 </S.ImageWrapper>
               </S.ImageContainer>
 
@@ -72,7 +67,12 @@ export default function UseditemsISold(props: {
                 <h1>{el?.name}</h1>
                 <S.ContentsUser>
                   <div>
-                    <img src="/img/icon/icon_profile_01.svg" alt="" />
+                    <img
+                      src="/img/icon/smile.png"
+                      alt=""
+                      width="40"
+                      height="40"
+                    />
                   </div>
                   <div>
                     <span>{el.seller?.name}</span>

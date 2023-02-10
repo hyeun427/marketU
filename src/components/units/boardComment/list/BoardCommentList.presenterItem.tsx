@@ -79,7 +79,11 @@ export default function BoardCommentListUIItem(
               <S.Contents>{props.el?.contents}</S.Contents>
             </S.MainWrapper>
             <S.OptionWrapper>
-              <S.UpdateIcon src="/img/editpencil.png" onClick={onClickUpdate} />
+              <S.UpdateIcon
+                src="/img/icon/pencil.png"
+                width={"20"}
+                onClick={onClickUpdate}
+              />
               <S.DeleteIcon
                 src="/img/delete.png"
                 onClick={onClickOpenDeleteModal}
