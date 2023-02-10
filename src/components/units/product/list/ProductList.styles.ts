@@ -17,32 +17,6 @@ export const ProductListWrapper = styled.div`
   overflow: auto;
 `;
 
-// 베스트 상품
-export const BestListWrapper = styled.div`
-  /* padding: 0px 20px;
-  width: 100%;
-  height: 400px;
-  text-align: center; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-`;
-
-export const BestItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-`;
-export const BestTitle = styled.div``;
-
-export const BestItem = styled.div`
-  width: 200px;
-  height: 200px;
-  border: 1px solid blue;
-`;
-
 // 리스트 메뉴
 export const ListMenuWrapper = styled.div`
   width: 100%;
@@ -54,21 +28,6 @@ export const ListMenuWrapper = styled.div`
   padding: 0px 20px;
 `;
 
-export const ChoiceShow = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const Selling = styled.div`
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
-export const Soldout = styled.div`
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
 export const MoveToNewItem = styled.button`
   width: 80px;
   height: 40px;
@@ -77,22 +36,18 @@ export const MoveToNewItem = styled.button`
   border: 1px solid #bdbdbd;
   background-color: white;
   border-radius: 10px;
-  :hover {
-    background-color: purple;
-    color: white;
-    border: 1px solid purple;
-  }
   cursor: pointer;
+  :hover {
+    background-color: #ffc6ce;
+    border: 1px solid #ffc6ce;
+    transition: all ease 0.5s;
+  }
 `;
 
 // 리스트 메뉴 검색
 export const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
-`;
-
-export const SearchDate = styled.div`
-  margin-right: 20px;
 `;
 
 export const SearchBox = styled.div`
@@ -113,19 +68,12 @@ export const SearchImg = styled.img`
 export const SearchInput = styled.input`
   margin-right: 20px;
   background-color: #f2f2f2;
-  /* border-radius: 10px; */
   border: 0px;
   width: 370px;
   height: 30px;
-`;
-
-export const SearchButton = styled.button`
-  width: 80px;
-  border: 1px solid #bdbdbd;
-  background-color: white;
-  border-radius: 10px;
-  height: 30px;
-  cursor: pointer;
+  :focus {
+    outline: none;
+  }
 `;
 
 // 상품 리스트

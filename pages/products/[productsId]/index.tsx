@@ -7,7 +7,7 @@ export default function ProductsPage() {
   useAuth();
   return (
     <>
-      <ProductDetail />;
+      <ProductDetail />
       {/* <ProductContactWrite />
       <ProductContactList /> */}
     </>
