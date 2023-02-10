@@ -40,6 +40,10 @@ export default function LayoutHeader() {
     router.push("/signIn");
   };
 
+  const onClickMypage = () => {
+    router.push("/mypage");
+  };
+
   return (
     <LayoutHeaderUI
       onClickLogo={onClickLogo}
@@ -48,6 +52,7 @@ export default function LayoutHeader() {
       onClickLogin={onClickLogin}
       onClickLogout={onClickLogout}
       onClickSignin={onClickSignin}
+      onClickMypage={onClickMypage}
     />
   );
 }

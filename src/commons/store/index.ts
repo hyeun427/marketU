@@ -33,3 +33,9 @@ export const watchListState = atom({
   key: "watchProductList",
   default: [],
 });
+
+// 커뮤니티 총 페이지
+export const boardsPageState = atom({
+  key: "boardsPageState",
+  default: 1,
+});
