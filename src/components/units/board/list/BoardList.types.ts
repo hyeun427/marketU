@@ -1,17 +1,17 @@
-import { ApolloQueryResult } from "@apollo/client";
+import { ApolloQueryResult, OperationVariables } from "@apollo/client";
 import { MouseEvent } from "react";
 import {
   IQuery,
-  IQueryFetchBoardsArgs,
   IQueryFetchBoardsCountArgs,
 } from "../../../../commons/types/generated/types";
 
 export interface IBoardListUIProps {
   data?: Pick<IQuery, "fetchBoards">;
+  boardsCount: number | undefined;
   onClickMoveToBoardNew: () => void;
   onClickMoveToBoardDetail: (event: MouseEvent<HTMLDivElement>) => void;
   refetch: (
-    variables: Partial<IQueryFetchBoardsArgs>
+    variables?: Partial<OperationVariables> | undefined
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
   refetchBoardsCount: (
     variables: Partial<IQueryFetchBoardsCountArgs>

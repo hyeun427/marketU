@@ -1,11 +1,21 @@
 import * as Ls from "./BoardList.style";
 import { getDate } from "../../../../commons/libraries/utils";
 import { IBoardListUIProps } from "./BoardList.types";
-import Paginations01 from "../../../commons/paginations/01/Paginations01.container";
 import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
 import { v4 as uuidv4 } from "uuid";
+import PagiNation01 from "../../../commons/paginations/01";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { boardsPageState } from "../../../../commons/store";
 
 export default function BoardListUI(props: IBoardListUIProps) {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const boardsPage = useRecoilValue(boardsPageState);
+
+  useEffect(() => {
+    setCurrentPage(boardsPage || 1);
+  }, [boardsPage]);
+
   return (
     // 리스트 전체영역
     <Ls.Wrapper>
@@ -48,7 +58,14 @@ export default function BoardListUI(props: IBoardListUIProps) {
       <Ls.TableBottom />
       {/* 리스트 푸터영역 */}
       <Ls.Footer>
-        <Paginations01 refetch={props.refetch} count={props.count} />
+        <PagiNation01
+          totalDataCount={props.boardsCount}
+          pageRangeToShow={5}
+          dataCountPerPage={10}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          refetch={props.refetch}
+        />
         <Ls.Button onClick={props.onClickMoveToBoardNew}>
           <Ls.PencilIcon src="write.png" />
           게시물 등록하기

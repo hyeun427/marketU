@@ -45,6 +45,7 @@ export default function BoardList() {
       count={dataBoardsCount?.fetchBoardsCount}
       keyword={keyword}
       onChangeKeyword={onChangeKeyword}
+      boardsCount={dataBoardsCount?.fetchBoardsCount}
     />
   );
 }

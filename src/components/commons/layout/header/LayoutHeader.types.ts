@@ -5,4 +5,5 @@ export interface ILayoutHeaderProps {
   onClickLogin: () => void;
   onClickLogout: () => void;
   onClickSignin: () => void;
+  onClickMypage: () => void;
 }
