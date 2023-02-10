@@ -20,11 +20,14 @@ export default function BoardListUI(props: IBoardListUIProps) {
     // 리스트 전체영역
     <Ls.Wrapper>
       {/* 검색창 */}
-      <Searchbars01
-        refetch={props.refetch}
-        refetchBoardsCount={props.refetchBoardsCount}
-        onChangeKeyword={props.onChangeKeyword}
-      />
+      <Ls.SearchBox>
+        <Ls.SearchImg src="/img/icon/search.png" width={20} />
+        <Ls.SearchInput
+          type="text"
+          placeholder="제목을 검색해주세요!"
+          onChange={props.onChangeSearch}
+        />
+      </Ls.SearchBox>
       <Ls.TableTop />
       {/* 리스트 헤더영역 */}
       <Ls.Row>

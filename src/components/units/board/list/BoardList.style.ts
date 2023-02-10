@@ -77,3 +77,29 @@ export const Button = styled.button`
 export const TextToken = styled.span`
   color: ${(props: ITextTokenProps) => (props.isMatched ? "red" : "black")};
 `;
+
+export const SearchBox = styled.div`
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 400px;
+  border-radius: 10px;
+  margin-right: 20px;
+`;
+
+export const SearchImg = styled.img`
+  margin-left: 10px;
+  margin-right: 10px;
+`;
+
+export const SearchInput = styled.input`
+  margin-right: 20px;
+  background-color: #f2f2f2;
+  border: 0px;
+  width: 370px;
+  height: 30px;
+  :focus {
+    outline: none;
+  }
+`;

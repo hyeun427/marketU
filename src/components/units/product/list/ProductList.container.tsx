@@ -5,23 +5,28 @@ import { useRouter } from "next/router";
 import { MouseEvent } from "react";
 import { useRecoilState } from "recoil";
 import { watchListState } from "../../../../commons/store";
-import {
-  FETCH_USED_ITEMS,
-  FETCH_USED_ITEMS_OF_THE_BEST,
-} from "./ProductList.queries";
+import { debounce } from "lodash";
+import { FETCH_USED_ITEMS } from "./ProductList.queries";
+import { ChangeEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export default function ProductList() {
-  // 최근 본 상품
-  const [watchProduct, setWatchProduct] = useRecoilState(watchListState);
   // 상품목록
-  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS);
-  const router = useRouter();
-  // 베스트 상품 목록
-  const { data: bestItemData } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
+  const {
+    data,
+    fetchMore,
+    refetch: refetchUseditems,
+  } = useQuery<Pick<IQuery, "fetchUseditems">>(FETCH_USED_ITEMS);
 
-  // 베스트 상품 사진 눌렀을 때 디테일 페이지로 이동
-  const onClickBestItem = (event: MouseEvent<HTMLDivElement>) => {
-    router.push(`/products/${event.currentTarget.id}`);
+  const router = useRouter();
+
+  // 검색바
+  const getDebounce = debounce((data) => {
+    refetchUseditems({ search: data, page: 1 });
+  }, 1000);
+
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    getDebounce(event.target.value);
   };
 
   // 등록하기 버튼
@@ -38,11 +43,11 @@ export default function ProductList() {
       watch.push(newEl);
       localStorage.setItem("watch", JSON.stringify(watch));
       setWatchProduct(watch.slice(watch.length - 3, watch.length));
-      // console.log(watchProduct);
 
       router.push(`/products/${event.currentTarget.id}`);
     };
 
+  // 무한 스크롤
   const onLoadMore = () => {
     if (!data) return;
 
@@ -63,6 +68,9 @@ export default function ProductList() {
     });
   };
 
+  // 최근 본 상품
+  const [watchProduct, setWatchProduct] = useRecoilState(watchListState);
+
   return (
     <ProductListUI
       data={data}
@@ -70,9 +78,7 @@ export default function ProductList() {
       onLoadMore={onLoadMore}
       onClickNewItem={onClickNewItem}
       onClickMoveDetail={onClickMoveDetail}
-      // 베스트 상품
-      bestItemData={bestItemData}
-      onClickBestItem={onClickBestItem}
+      onChangeSearch={onChangeSearch}
     />
   );
 }

@@ -19,6 +19,7 @@ export interface IBoardListUIProps {
   count?: number;
   keyword: string;
   onChangeKeyword: (value: string) => void;
+  onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ITextTokenProps {

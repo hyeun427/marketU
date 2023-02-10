@@ -1,37 +1,24 @@
-// 상품목록 프리젠터
 import * as S from "./ProductList.styles";
 import InfiniteScroll from "react-infinite-scroller";
-// import BestContents from "../../best/bestcontents.container";
+import { IProductListUI } from "./ProductList.types";
 
-export default function ProductListUI(props) {
+export default function ProductListUI(props: IProductListUI) {
   return (
     <S.Wrapper>
       <S.ProductListWrapper>
-        {/* 상품리스트 위 타이틀 */}
-        <S.BestTitle>베스트 상품</S.BestTitle>
-        <S.BestListWrapper>
-          {/* <BestContents /> */}
-          <S.BestItemWrapper>
-            <S.BestItem>베스트1</S.BestItem>
-            <S.BestItem>베스트2</S.BestItem>
-            <S.BestItem>베스트3</S.BestItem>
-          </S.BestItemWrapper>
-        </S.BestListWrapper>
         <S.ListMenuWrapper>
-          <S.ChoiceShow>
-            <S.Selling>판매중 상품</S.Selling>
-            <S.Soldout>판매된 상품</S.Soldout>
-            <S.MoveToNewItem onClick={props.onClickNewItem}>
-              상품 등록
-            </S.MoveToNewItem>
-          </S.ChoiceShow>
+          <S.MoveToNewItem onClick={props.onClickNewItem}>
+            상품 등록
+          </S.MoveToNewItem>
           <S.SearchWrapper>
             <S.SearchBox>
-              <S.SearchImg src="/ProductList/search.png" />
-              <S.SearchInput />
+              <S.SearchImg src="/img/icon/search.png" width={20} />
+              <S.SearchInput
+                type="text"
+                placeholder="원하시는 상품을 검색해주세요!"
+                onChange={props.onChangeSearch}
+              />
             </S.SearchBox>
-            <S.SearchDate>날짜 선택</S.SearchDate>
-            <S.SearchButton>검색</S.SearchButton>
           </S.SearchWrapper>
         </S.ListMenuWrapper>
         <div
