@@ -21,13 +21,13 @@ export default function MypagePointUI(props: IMypagePointUI) {
         </S.Modal>
       )}
       <S.Left>
-        <img src="/img/icon/icon_profile_01.svg" />
+        <img src="/img/icon/smile.png" alt="" width="40" height="40" />
         <span>
-          안녕하세요 <b>{props.userData?.fetchUserLoggedIn.name}</b>님 {`:)`}
+          안녕하세요 <b>{props.userData?.fetchUserLoggedIn.name}</b>님
         </span>
       </S.Left>
       <S.Right>
-        <img src="/img/icon/icon_wallet.png" />
+        <img src="/img/icon/wallet.png" width="35" height="38" />
         <div>
           <span>보유금액</span>
           <span>

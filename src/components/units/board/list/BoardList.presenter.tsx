@@ -67,7 +67,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
           refetch={props.refetch}
         />
         <Ls.Button onClick={props.onClickMoveToBoardNew}>
-          <Ls.PencilIcon src="write.png" />
+          <img src="/img/icon/pencil.png" width={"20"} />
           게시물 등록하기
         </Ls.Button>
       </Ls.Footer>
