@@ -3,7 +3,6 @@ import { getDate } from "../../../../commons/libraries/utils";
 import { Tooltip } from "antd";
 import { IProductDetaulUIProps } from "./ProductDetail.types";
 import Dompurify from "dompurify";
-import Slider from "react-slick";
 import { v4 as uuidv4 } from "uuid";
 import KakaoMap02 from "../../../commons/kakaoMap/02";
 import MarketComment from "../../comment";
@@ -26,7 +25,6 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         <S.ProfileWrapper>
           <S.Profile>
             <S.Photo src="/ProductDetail/profile.png" />
-
             <S.ProfileDetail>
               <S.Seller>{props.data?.fetchUseditem?.seller?.name}</S.Seller>
               <S.Date>{getDate(props.data?.fetchUseditem?.createdAt)}</S.Date>
@@ -35,7 +33,7 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
 
           <S.IconWrapper>
             <S.Share src="/ProductDetail/share.png" />
-            <Tooltip placement="topRight" title={"주소야 나와랏"}>
+            <Tooltip placement="topRight" title={"주소가 없습니다."}>
               <S.Spot src="/ProductDetail/spot.png" />
             </Tooltip>
           </S.IconWrapper>
@@ -52,7 +50,6 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
               src="/ProductDetail/pick.png"
               onClick={props.onClickPick}
             />
-            {/* <S.PickIcon onClick={onClickPick} /> */}
             <S.Pick>{props.data?.fetchUseditem.pickedCount}</S.Pick>
           </S.PickWrapper>
         </S.Title>
@@ -68,20 +65,6 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         {/* 이미지 슬라이더 */}
         {props.data?.fetchUseditem?.images[0] ? (
           <S.SliderWrapper>
-            {/* <Slider {...settings}>
-              {props.data?.fetchUseditem.images.map((el, index) => (
-                <S.SliderItem key={uuidv4()}>
-                  <S.SliderImg
-                    hidden={!props.data?.fetchUseditem.images[index]}
-                    src={
-                      el?.startsWith("https", 0)
-                        ? el
-                        : `https://storage.googleapis.com/${el}`
-                    }
-                  />
-                </S.SliderItem>
-              ))}
-            </Slider> */}
             <S.SliderImg
               src={`https://storage.googleapis.com/${
                 props.data?.fetchUseditem.images.filter((el) => el !== "")[0]

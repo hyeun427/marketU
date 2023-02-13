@@ -34,7 +34,6 @@ export const Label = styled.div`
   margin-bottom: 10px;
 `;
 
-////////////input 4개 css설정이 동일함. 완성 후까지 동일하다면 하나로 만들기
 export const ProductName = styled.input`
   width: 100%;
   height: 52px;
@@ -197,7 +196,25 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   background: #bdbdbd;
   :hover {
-    background-color: purple;
+    background-color: #ffc6ce;
     color: white;
+  }
+`;
+
+export const HashTagWrapper = styled.div`
+  padding: 10px 10px 0 0;
+`;
+
+export const HashTag = styled.div`
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  color: #848484;
+  border: 1px solid #848484;
+  border-radius: 2rem;
+  cursor: pointer;
+
+  :hover {
+    color: #fff;
+    background-color: #848484;
   }
 `;

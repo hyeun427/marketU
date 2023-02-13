@@ -1,6 +1,29 @@
-// 디테일 페이지 지도(지도 크기가 큼)
-
+// 디테일 페이지 지도
 import { useEffect } from "react";
+import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
+
+const Map1 = styled.div`
+  width: 600px;
+  height: 350px;
+`;
+
+const Map2 = styled.div`
+  width: 100%;
+  height: 100%;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+
+    margin: 0px auto;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 0%;
+    height: 60%;
+    margin: 0px auto;
+  }
+`;
 
 export default function KakaoMap2(props) {
   const address = String(props.address);
@@ -32,7 +55,6 @@ export default function KakaoMap2(props) {
               result[0].y,
               result[0].x
             );
-            // console.log(coords);
             if (props.setGps) props.setGps(coords);
             // 결과값으로 받은 위치를 마커로 표시합니다
             const marker = new window.kakao.maps.Marker({
@@ -55,9 +77,9 @@ export default function KakaoMap2(props) {
 
   return (
     <>
-      <div>
-        <div id="map" style={{ width: 600, height: 350 }}></div>
-      </div>
+      <Map1>
+        <Map2 id="map"></Map2>
+      </Map1>
     </>
   );
 }

@@ -38,13 +38,15 @@ export default function BoardListUI(props: IBoardListUIProps) {
       </Ls.Row>
       {/* 리스트 영역 */}
       {/* 리스트 불러오기를 10번 반복하는 코드*/}
-      {props.data?.fetchBoards.map((el) => (
+      {props.data?.fetchBoards.map((el, index: number) => (
         <Ls.Row key={el._id}>
           <Ls.ColumnBasic>
-            {/* 아랫줄 id값 출력을 번호로 바꿔줄 것 */}
-            {String(el._id).slice(-4).toUpperCase()}
+            {<span>{(currentPage - 1) * 10 + index + 1}</span>}
           </Ls.ColumnBasic>
-          <Ls.ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+          <Ls.ColumnTitle
+            id={el._id}
+            onClick={props.onClickMoveToBoardDetail(el._id)}
+          >
             {el.title
               .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
               .split("@#$%")

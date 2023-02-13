@@ -121,6 +121,5 @@ export const Button = styled.button`
 
   :hover {
     background-color: #ffc6ce;
-    color: white;
   }
 `;

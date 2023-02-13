@@ -4,7 +4,7 @@ import ProductDetail from "../../../src/components/units/product/detail/ProductD
 // import ProductContactWrite from "../../../src/components/units/contact/write/ProductContactWrite.container";
 
 export default function ProductsPage() {
-  useAuth();
+  // useAuth();
   return (
     <>
       <ProductDetail />

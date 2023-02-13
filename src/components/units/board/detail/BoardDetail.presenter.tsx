@@ -9,8 +9,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
       <DS.Wrapper>
         <DS.ProfileWrapper>
           <DS.Profile>
-            <DS.Photo src="/profile.png" />
-
+            <DS.Photo src="/img/icon/profile.png" />
             <DS.ProfileDetail>
               <DS.Writer>{props.data?.fetchBoard?.writer}</DS.Writer>
               <DS.Date>{getDate(props.data?.fetchBoard?.createdAt)}</DS.Date>
@@ -18,12 +17,12 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
           </DS.Profile>
 
           <DS.IconWrapper>
-            <DS.Share src="/share.png" />
+            <DS.Share src="/img/icon/share.png" />
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
             >
-              <DS.Spot src="/spot.png" />
+              <DS.Spot src="/img/icon/spot.png" />
             </Tooltip>
           </DS.IconWrapper>
         </DS.ProfileWrapper>
@@ -57,9 +56,23 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
 
       <DS.ButtonWrapper>
         <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
-        <DS.Button onClick={props.onClickMoveToBoardEdit}>수정하기</DS.Button>
-        <DS.Button onClick={props.onClickDeleteBoard}>삭제하기</DS.Button>
       </DS.ButtonWrapper>
+
+      {/* {props.data2?.fetchUserLoggedIn?._id ===
+        props.data?.fetchBoard?.user?._id && (
+        <DS.ButtonWrapper>
+          <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
+          <DS.Button onClick={props.onClickMoveToBoardEdit}>수정하기</DS.Button>
+          <DS.Button onClick={props.onClickDeleteBoard}>삭제하기</DS.Button>
+        </DS.ButtonWrapper>
+      )}
+
+      {props.data2?.fetchUserLoggedIn?._id !==
+        props.data?.fetchBoard?.user?._id && (
+        <DS.ButtonWrapper>
+          <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
+        </DS.ButtonWrapper>
+      )} */}
     </DS.OutWrapper>
   );
 }

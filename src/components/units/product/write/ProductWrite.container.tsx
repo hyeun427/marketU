@@ -14,6 +14,7 @@ import {
 import { useRouter } from "next/router";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
+import { useAuth } from "../../../commons/hooks/useAuth";
 
 // 에디터
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -29,6 +30,7 @@ const schema = yup.object({
 });
 
 export default function ProductWrite(props: IProductWriteProps) {
+  useAuth();
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const router = useRouter();
@@ -76,9 +78,12 @@ export default function ProductWrite(props: IProductWriteProps) {
     }
   };
 
-  useEffect(() => {
-    // console.log(hashArr);
-  }, [hashArr]);
+  useEffect(() => {}, [hashArr]);
+
+  // 태그 삭제
+  const onClickDeleteTag = (tag: string) => () => {
+    setHashArr(hashArr.filter((el) => el !== tag));
+  };
 
   // 지도
   const onClickModal = () => {
@@ -111,8 +116,6 @@ export default function ProductWrite(props: IProductWriteProps) {
 
   // 상품 등록버튼
   const onClickSubmit = async (data) => {
-    // console.log(data);
-
     try {
       const result = await createUseditem({
         variables: {
@@ -213,6 +216,7 @@ export default function ProductWrite(props: IProductWriteProps) {
       // 태그
       hashArr={hashArr}
       onKeyUpHash={onKeyUpHash}
+      onClickDeleteTag={onClickDeleteTag}
       // 등록버튼
       onClickSubmit={onClickSubmit}
       // 수정

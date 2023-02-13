@@ -1,10 +1,10 @@
-import { HeartOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const OutWrapper = styled.div`
-  width: 1200px;
+  width: 70%;
   border: 1px solid black;
-  margin-top: 100px;
+  margin: 50px 0px;
   padding-top: 80px;
   padding-bottom: 100px;
   padding-left: 102px;
@@ -36,6 +36,7 @@ export const Profile = styled.div`
 
 export const Photo = styled.img`
   margin-right: 10px;
+  width: 50px;
 `;
 
 export const ProfileDetail = styled.div`
@@ -60,8 +61,6 @@ export const Share = styled.img`
   margin-bottom: 5px;
 `;
 
-// export const Tooltip = styled.div``;
-
 export const Spot = styled.img`
   width: 25px;
 `;
@@ -69,6 +68,16 @@ export const Spot = styled.img`
 export const Body = styled.div`
   width: 100%;
   min-height: 800px;
+
+  @media ${breakPoints.tablet} {
+    width: 80%;
+    margin: 0px auto;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 60%;
+    margin: 0px auto;
+  }
 `;
 
 export const Title = styled.div`
@@ -78,7 +87,6 @@ export const Title = styled.div`
 `;
 
 export const ProductName = styled.div`
-  font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -92,10 +100,10 @@ export const PickIcon = styled.img`
   width: 90%;
   cursor: pointer;
 `;
+
 export const Pick = styled.div``;
 
 export const Price = styled.div`
-  font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -124,7 +132,7 @@ export const SliderItem = styled.div`
 `;
 
 export const SliderImg = styled.img`
-  width: 500px;
+  width: 100%;
   height: 350px;
   object-fit: contain;
 `;
@@ -133,7 +141,6 @@ export const SliderImg = styled.img`
 export const Contents = styled.p`
   width: 100%;
   height: auto;
-  font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -184,7 +191,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: purple;
-    color: white;
+    background-color: #ffc6ce;
   }
 `;

@@ -81,14 +81,20 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
           </span>
           <S.Tag
             type="text"
-            placeholder="#태그 #태그 #태그"
+            placeholder="태그를 입력하고 스페이스바를 눌러주세요. 작성한 태그를 눌러서 삭제할 수 있어요."
             {...props.register("tags")}
             onKeyUp={props.onKeyUpHash}
             defaultValue={props.data1?.fetchUseditem.tags || ""}
           />
+          <div>
+            {props.hashArr.map((el: string) => (
+              <S.HashTagWrapper key={uuidv4()}>
+                <S.HashTag onClick={props.onClickDeleteTag(el)}>{el}</S.HashTag>
+              </S.HashTagWrapper>
+            ))}
+          </div>
           <S.Error>{props.formState.errors.tags?.message}</S.Error>
         </S.InputWrapper>
-
         {/* 지도 */}
         <S.MapWrapper>
           <S.MapLeftWrapper>
