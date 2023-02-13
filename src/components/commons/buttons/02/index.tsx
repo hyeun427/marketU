@@ -1,8 +1,8 @@
-import { buttonCss } from "./styles";
+import styled from "@emotion/styled";
 
-interface IProps {
+interface IButtonComponent {
   disabled?: boolean;
-  title: string;
+  text: string;
   type?: "button" | "submit";
   onClick?: (...args: any) => void;
   style?: {
@@ -10,15 +10,24 @@ interface IProps {
   };
 }
 
-export default function Button02(props: IProps) {
+const Button = styled.button`
+  background-color: #fff;
+  border: 0.1rem solid #ffa7a7;
+  padding: 0.3rem;
+  border-radius: 0.8rem;
+  width: 5rem;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.2);
+    transition: all ease 0.5s;
+  }
+`;
+
+export default function button02(props: IButtonComponent) {
+  const { style, text } = props;
   return (
-    <button
-      type={props.type || "button"}
-      onClick={props.onClick}
-      disabled={props.disabled}
-      css={[buttonCss.default, buttonCss[props.title], props.style]}
-    >
-      {props.title}
-    </button>
+    <Button style={style || {}} onClick={props.onClick}>
+      {text}
+    </Button>
   );
 }

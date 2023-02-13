@@ -1,14 +1,25 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../../commons/store";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { accessTokenState, userInfoState } from "../../../../commons/store";
+import { IQuery } from "../../../../commons/types/generated/types";
 import LayoutHeaderUI from "./LayoutHeader.presenter";
-import { LOGOUT_USER } from "./LayoutHeader.queries";
+import {
+  FETCH_USEDITEMS_COUNT_I_PICKED,
+  FETCH_USER_LOGGED_IN,
+  LOGOUT_USER,
+} from "./LayoutHeader.queries";
 
 export default function LayoutHeader() {
   const router = useRouter();
   const [logoutUser] = useMutation(LOGOUT_USER);
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const accessToken = useRecoilValue(accessTokenState);
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const { data: dataItemsCountIPicked } = useQuery<
+    Pick<IQuery, "fetchUseditemsCountIPicked">
+  >(FETCH_USEDITEMS_COUNT_I_PICKED);
+  const { data: userData } =
+    useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
   const onClickLogo = () => {
     router.push("/");
@@ -29,10 +40,14 @@ export default function LayoutHeader() {
   const onClickLogout = () => {
     try {
       logoutUser();
-      setAccessToken("");
+      setUserInfo({
+        email: "",
+        name: "",
+      });
       alert("로그아웃 하였습니다.");
+      location.reload();
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) alert(error.message);
     }
   };
 
@@ -53,6 +68,10 @@ export default function LayoutHeader() {
       onClickLogout={onClickLogout}
       onClickSignin={onClickSignin}
       onClickMypage={onClickMypage}
+      userInfo={userInfo}
+      accessToken={accessToken}
+      dataItemsCountIPicked={dataItemsCountIPicked}
+      userData={userData}
     />
   );
 }

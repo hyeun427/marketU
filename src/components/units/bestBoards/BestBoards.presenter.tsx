@@ -2,7 +2,7 @@ import * as S from "./BestBoards.styles";
 import { timeForDay } from "../../../commons/libraries/utils";
 import { v4 as uuidv4 } from "uuid";
 import { IBestBoardsUIProps } from "./BestBoards.types";
-import Button04 from "../../commons/buttons/04";
+import button02 from "../../commons/buttons/02";
 
 export default function BestBoardsUI(props: IBestBoardsUIProps) {
   return (
@@ -16,7 +16,7 @@ export default function BestBoardsUI(props: IBestBoardsUIProps) {
                 <h1>인기게시글</h1>
               </div>
             </div>
-            <Button04
+            <button02
               type="button"
               text={"전체보기"}
               onClick={props.onClickAll}

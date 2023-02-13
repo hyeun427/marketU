@@ -8,33 +8,15 @@ import {
   User,
   Detail,
   Button,
-  SignUpButton,
+  Count,
+  Icon,
 } from "./LayoutHeader.styles";
 import { ILayoutHeaderProps } from "./LayoutHeader.types";
-import { gql, useQuery } from "@apollo/client";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../../commons/store";
-
-const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
-      email
-      name
-      picture
-      userPoint {
-        amount
-      }
-    }
-  }
-`;
 
 export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
-  const [isToken] = useRecoilState(accessTokenState);
-
   return (
     <Header>
-      {isToken ? (
+      {props.accessToken ? (
         <>
           <Menu>
             <Logo onClick={props.onClickLogo}>
@@ -46,12 +28,17 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
             <Menu1 onClick={props.onClickMoveToBoardList}>커뮤니티</Menu1>
             <Menu1 onClick={props.onClickMypage}>마이페이지</Menu1>
           </Menu>
-          <Detail>
-            <User>{data?.fetchUserLoggedIn.name}님 환영합니다</User>
-            <User>{data?.fetchUserLoggedIn.userPoint?.amount}P</User>
-            <Button>장바구니</Button>
 
-            <SignUpButton onClick={props.onClickLogout}>로그아웃</SignUpButton>
+          <Detail>
+            <User>{props.userData?.fetchUserLoggedIn.name}님 환영합니다</User>
+            <Icon src="/img/icon/cash.png" alt="보유캐쉬" />
+            <User>{props.userData?.fetchUserLoggedIn.userPoint?.amount}P</User>
+            <Icon src="/img/icon/shopping_cart.png" alt="찜한갯수" />
+            <Count onClick={props.onClickMypage}>
+              {props.dataItemsCountIPicked?.fetchUseditemsCountIPicked}
+            </Count>
+
+            <Button onClick={props.onClickLogout}>로그아웃</Button>
           </Detail>
         </>
       ) : (
