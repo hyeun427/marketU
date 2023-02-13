@@ -2,7 +2,7 @@ import * as S from "./BestProducts.styles";
 import { timeForDay, getPrice } from "../../../commons/libraries/utils";
 import { v4 as uuidv4 } from "uuid";
 import { IBestProductsUI } from "./BestProducts.types";
-import Button04 from "../../commons/buttons/04";
+import button02 from "../../commons/buttons/02";
 
 export default function BestProductsUI(props: IBestProductsUI) {
   return (
@@ -16,7 +16,7 @@ export default function BestProductsUI(props: IBestProductsUI) {
                 <h1>인기상품</h1>
               </div>
             </div>
-            <Button04
+            <button02
               type="button"
               text={"전체보기"}
               onClick={props.onClickAll}

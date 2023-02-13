@@ -2,84 +2,38 @@ import { css, SerializedStyles } from "@emotion/react";
 
 const styles = {
   default: css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 2rem;
-    border-radius: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 0.06em;
+    width: 100%;
+    padding: 1.25rem 0;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
     cursor: pointer;
   `,
 
-  outlineWhiteArrow: css`
-    max-width: 242px;
-    width: 100%;
-
+  pink: css`
     background-color: #ffc6ce;
-    border: 3px solid #000000;
-    transition: all ease 0.5s;
-
-    ::after {
-      content: url("/img/icon/icon_arrow_right.svg");
-      padding-left: 10px;
-      max-height: 32px;
-    }
-
-    :hover {
-      filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.35));
-    }
+    color: #ffffff;
   `,
 
-  outlineWhite: css`
-    max-width: 242px;
-    width: 100%;
-    background-color: #fff;
-    border: 3px solid #000000;
-    transition: all ease 0.5s;
+  lightGreen: css`
+    background-color: #a0d468;
+    color: #ffffff;
+  `,
 
-    :hover {
-      filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.35));
-    }
+  blue: css`
+    background-color: #3c96ff;
+    color: #ffffff;
   `,
 
   yellow: css`
-    max-width: 242px;
-    width: 100%;
     background-color: #ffcf07;
-    border: none;
-    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.35);
-    color: #000;
-    transition: all ease 0.5s;
-
-    :hover {
-      filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.35));
-    }
+    color: #ffffff;
   `,
 
-  darkGreen: css`
-    max-width: 242px;
-    width: 100%;
-    background-color: #0c662f;
-    border: none;
-    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.35);
-    color: #fff;
-    transition: all ease 0.5s;
-
-    :hover {
-      filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.35));
-    }
-  `,
-
-  outlineWhiteFit: css`
-    background-color: #fff;
-    border: 3px solid #000000;
-    transition: all ease 0.5s;
-
-    :hover {
-      filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.35));
-    }
+  outlineBlue: css`
+    background-color: #ffffff;
+    color: #3c96ff;
+    border: 1px solid #3c96ff;
   `,
 };
 
@@ -87,10 +41,11 @@ export const buttonCss: {
   [index: string]: SerializedStyles;
 } = {
   default: styles.default,
-  전체보기: styles.outlineWhiteArrow,
-  "게시글 작성하기": styles.outlineWhite,
-  "상품 등록하기": styles.outlineWhite,
-  수정하기: styles.outlineWhiteFit,
-  삭제하기: styles.outlineWhiteFit,
-  뒤로가기: styles.outlineWhiteFit,
+  로그인: styles.blue,
+  가입하기: styles.blue,
+  메인으로: styles.blue,
+  회원가입: styles.outlineBlue,
+  "게시글 작성하기": styles.darkGreen,
+  "상품 등록하기": styles.lightGreen,
+  충전하기: styles.yellow,
 };
