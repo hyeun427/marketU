@@ -70,7 +70,7 @@ export default function BoardCommentListUIItem(
       {!isEdit && (
         <S.ItemWrapper>
           <S.FlexWrapper>
-            <S.Avatar src="/img/avatar.png" />
+            <S.Avatar src="/img/icon/avatar.png" />
             <S.MainWrapper>
               <S.WriterWrapper>
                 <S.Writer>{props.el?.writer}</S.Writer>
@@ -80,12 +80,12 @@ export default function BoardCommentListUIItem(
             </S.MainWrapper>
             <S.OptionWrapper>
               <S.UpdateIcon
-                src="/img/icon/pencil.png"
+                src="/img/icon/editpencil.png"
                 width={"20"}
                 onClick={onClickUpdate}
               />
               <S.DeleteIcon
-                src="/img/delete.png"
+                src="/img/icon/delete.png"
                 onClick={onClickOpenDeleteModal}
               />
             </S.OptionWrapper>

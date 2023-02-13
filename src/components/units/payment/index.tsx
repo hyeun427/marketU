@@ -23,8 +23,7 @@ export default function Payment(props: { onToggleModal: () => void }) {
 
   const requestPay = () => {
     const IMP = window.IMP;
-    IMP.init("imp58061661");
-    // IMP.init("imp49910675");
+    IMP.init("imp49910675");
     IMP.request_pay(
       {
         pg: "html5_inicis",

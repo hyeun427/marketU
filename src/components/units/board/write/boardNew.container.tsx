@@ -6,8 +6,10 @@ import BoardWriteUI from "./boardNew.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./boardNew.queries";
 import { IBoardWriteProps, IUpdateBoardInput } from "./boardNew.types";
 import { Modal } from "antd";
+import { useAuth } from "../../../commons/hooks/useAuth";
 
 export default function BoardWrite(props: IBoardWriteProps) {
+  useAuth();
   const router = useRouter();
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");

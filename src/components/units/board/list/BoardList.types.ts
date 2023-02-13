@@ -9,7 +9,7 @@ export interface IBoardListUIProps {
   data?: Pick<IQuery, "fetchBoards">;
   boardsCount: number | undefined;
   onClickMoveToBoardNew: () => void;
-  onClickMoveToBoardDetail: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickMoveToBoardDetail: (id: string) => () => void;
   refetch: (
     variables?: Partial<OperationVariables> | undefined
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;

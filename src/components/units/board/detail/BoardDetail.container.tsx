@@ -6,6 +6,7 @@ import {
   DELETE_BOARD,
   LIKE_BOARD,
   DISLIKE_BOARD,
+  FETCH_USER_LOGGED_IN,
 } from "./BoardDetail.queries";
 import {
   IMutation,
@@ -69,7 +70,7 @@ export default function BoardDetail() {
       ],
     });
   };
-  // 싫어요 버튼 왜 안되지 왜 갑자기 되지
+  // 싫어요
   const onClickDislike = () => {
     dislikeBoard({
       variables: { boardId: String(router.query.boardId) },
@@ -79,9 +80,16 @@ export default function BoardDetail() {
     });
   };
 
+  // 로그인 정보 불러오기 쿼리
+  const { data: data2 } = useQuery(FETCH_USER_LOGGED_IN);
+
+  console.log(data2?.fetchUserLoggedIn?._id, "디테일페이지id");
+  console.log(data?.fetchBoard?.user, "디테일페이지user");
+
   return (
     <BoardDetailUI
       data={data}
+      data2={data2}
       onClickMoveToBoardList={onClickMoveToBoardList}
       onClickMoveToBoardEdit={onClickMoveToBoardEdit}
       onClickDeleteBoard={onClickDeleteBoard}

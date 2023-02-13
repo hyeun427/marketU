@@ -3,7 +3,7 @@ import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  margin: 0px 100px;
+  margin: 0px 100px 40px;
 `;
 
 export const PencilIcon = styled.img`
@@ -14,7 +14,7 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
 `;
 export const Input = styled.input`

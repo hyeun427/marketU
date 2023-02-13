@@ -29,6 +29,9 @@ export default function MyPageUI(props: IMyPageUI) {
             {props.activeMenu === "판매한 상품" && (
               <UseditemsISold onClickUseditem={props.onClickUseditem} />
             )}
+            {props.activeMenu === "내가 쓴 글" && (
+              <UseditemsISold onClickUseditem={props.onClickUseditem} />
+            )}
           </S.Contents>
         </S.InnerWrapper>
       </S.Wrapper>
