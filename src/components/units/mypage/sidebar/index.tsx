@@ -33,7 +33,7 @@ const Li = styled.li`
   color: #848484;
   word-break: keep-all;
   cursor: pointer;
-
+  margin-right: 3rem;
   &.isActive {
     color: #3c96ff;
   }
