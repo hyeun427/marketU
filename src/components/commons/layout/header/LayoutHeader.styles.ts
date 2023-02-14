@@ -26,7 +26,7 @@ export const Menu = styled.div`
   }
 
   @media ${breakPoints.mobile} {
-    font-size: 10px;
+    font-size: 16px;
   }
 `;
 

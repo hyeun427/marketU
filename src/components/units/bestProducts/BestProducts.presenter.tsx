@@ -71,7 +71,6 @@ export default function BestProductsUI(props: IBestProductsUI) {
                     <span>
                       <b>{"₩ " + getPrice(el?.price)}</b>
                     </span>
-                    <span>{el?.tags}</span>
                   </S.ContentsPrice>
                 </S.ContentsWrapper>
               </S.ItemWrapper>
