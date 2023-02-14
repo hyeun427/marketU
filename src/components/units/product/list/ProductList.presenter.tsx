@@ -81,7 +81,6 @@ export default function ProductListUI(props: IProductListUI) {
           </InfiniteScroll>
         </div>
       </S.ProductListWrapper>
-      <S.TodayListWrapper></S.TodayListWrapper>
     </S.Wrapper>
   );
 }

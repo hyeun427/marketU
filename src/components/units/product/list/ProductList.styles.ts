@@ -1,16 +1,15 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 // 브라우저 전체
 export const Wrapper = styled.div`
   width: 100%;
-
-  /* padding: 20px; */
   margin: 20px auto;
 `;
 
 // 리스트 전체
 export const ProductListWrapper = styled.div`
-  width: 1200px;
+  width: 90%;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
@@ -57,7 +56,12 @@ export const SearchBox = styled.div`
   height: 30px;
   width: 400px;
   border-radius: 10px;
-  margin-right: 20px;
+  @media ${breakPoints.tablet} {
+    width: 350px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 250px;
+  }
 `;
 
 export const SearchImg = styled.img`
@@ -114,21 +118,38 @@ export const ItemListDetail = styled.div`
 export const ItemListDetailName = styled.div`
   font-size: 24px;
   font-weight: 500;
-  /* margin-bottom: 5px; */
   cursor: pointer;
+  @media ${breakPoints.tablet} {
+    font-size: 20px;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 15px;
+  }
 `;
 
 export const ItemListDetailRemarks = styled.div`
   font-size: 16px;
   font-weight: 500;
-  /* margin-bottom: 5px; */
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
 
 export const ItemListDetailTags = styled.div`
   font-size: 16px;
   font-weight: 500;
-  /* margin-bottom: 5px; */
   color: #bdbdbd;
+  @media ${breakPoints.tablet} {
+    font-size: 13px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
 
 // 이름, 픽, 아이콘
@@ -169,8 +190,10 @@ export const ItemListPrice = styled.div`
   font-family: "NanumBarunGothicBold";
   font-size: 24px;
   font-weight: 700;
-  /* margin-bottom: 5px; */
+  @media ${breakPoints.tablet} {
+    font-size: 20px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 15px;
+  }
 `;
-
-// 오늘 본 상품
-export const TodayListWrapper = styled.div``;

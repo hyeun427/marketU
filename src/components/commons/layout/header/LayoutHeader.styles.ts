@@ -4,16 +4,34 @@ import { breakPoints } from "../../../../commons/styles/media";
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  width: auto;
+  width: 100%;
   height: 80px;
   padding-left: 20px;
   border-bottom: 1px solid #c4c4c4;
   @media ${breakPoints.tablet} {
-    height: 70px;
+    display: none;
   }
 
   @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
+export const MediaSide = styled.div`
+  display: none;
+  @media ${breakPoints.tablet} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding-left: 10px;
+  }
+  @media ${breakPoints.mobile} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
+    padding-left: 10px;
   }
 `;
 
@@ -22,17 +40,15 @@ export const Menu = styled.div`
   justify-content: space-between;
   font-size: 26px;
   @media ${breakPoints.tablet} {
-    font-size: 23px;
-  }
-
-  @media ${breakPoints.mobile} {
-    font-size: 16px;
+    font-size: 15px;
   }
 `;
 
 export const Logo = styled.div`
-  display: flex;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LogoTitle = styled.div`
@@ -42,7 +58,7 @@ export const LogoTitle = styled.div`
 
 export const LogoImg = styled.img`
   height: 90px;
-  object-position: -10px -18px;
+  object-position: -10px -13px;
 `;
 
 export const Menu1 = styled.div`
@@ -64,7 +80,7 @@ export const Detail = styled.div`
   font-size: 20px;
   font-weight: bold;
   @media ${breakPoints.tablet} {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   @media ${breakPoints.mobile} {
@@ -98,4 +114,9 @@ export const Button = styled.button`
   :hover {
     color: #ff007f;
   }
+`;
+
+export const DetailIcon = styled.img`
+  height: 2.5rem;
+  cursor: pointer;
 `;
