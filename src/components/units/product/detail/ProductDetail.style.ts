@@ -11,6 +11,15 @@ export const OutWrapper = styled.div`
   padding-right: 102px;
   border: none;
   box-shadow: 0px 0px 10px gray;
+  @media ${breakPoints.tablet} {
+    width: 80%;
+    margin: 0px auto;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 60%;
+    margin: 0px auto;
+  }
 `;
 
 export const Header = styled.div`
@@ -36,7 +45,7 @@ export const Profile = styled.div`
 
 export const Photo = styled.img`
   margin-right: 10px;
-  width: 50px;
+  width: 45px;
 `;
 
 export const ProfileDetail = styled.div`
@@ -68,7 +77,6 @@ export const Spot = styled.img`
 export const Body = styled.div`
   width: 100%;
   min-height: 800px;
-
   @media ${breakPoints.tablet} {
     width: 80%;
     margin: 0px auto;
@@ -116,7 +124,6 @@ export const SliderWrapper = styled.div`
   height: 384px;
   padding: 50px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 50px 0px;
@@ -132,7 +139,7 @@ export const SliderItem = styled.div`
 `;
 
 export const SliderImg = styled.img`
-  width: 100%;
+  width: 60%;
   height: 350px;
   object-fit: contain;
 `;

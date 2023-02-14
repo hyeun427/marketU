@@ -9,7 +9,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
       <DS.Wrapper>
         <DS.ProfileWrapper>
           <DS.Profile>
-            <DS.Photo src="/img/icon/profile.png" />
+            <DS.Photo src="/img/icon/smile.png" />
             <DS.ProfileDetail>
               <DS.Writer>{props.data?.fetchBoard?.writer}</DS.Writer>
               <DS.Date>{getDate(props.data?.fetchBoard?.createdAt)}</DS.Date>
@@ -30,6 +30,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
         <DS.ContentWrapper>
           <DS.Title>{props.data?.fetchBoard.title}</DS.Title>
           <DS.Content>{props.data?.fetchBoard.contents}</DS.Content>
+
           {/* 유튜브 영상 출력 */}
           {props.data?.fetchBoard.youtubeUrl && (
             <DS.Youtube
@@ -38,6 +39,21 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
               height="240px"
             />
           )}
+          {/* 이미지 */}
+          {props.data?.fetchBoard?.images ? (
+            <DS.SliderWrapper>
+              <DS.SliderImg
+                src={`https://storage.googleapis.com/${
+                  props.data?.fetchBoard.images.filter((el) => el !== "")[0]
+                }`}
+              />
+            </DS.SliderWrapper>
+          ) : (
+            <DS.SliderWrapper>
+              <DS.SliderImg src="/img/icon/noImage.png" />
+            </DS.SliderWrapper>
+          )}
+
           <DS.LikeWrapper>
             {/* 좋아요,싫어요 구현 */}
             <DS.IconWrapper>
@@ -54,12 +70,8 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
         </DS.ContentWrapper>
       </DS.Wrapper>
 
-      <DS.ButtonWrapper>
-        <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
-      </DS.ButtonWrapper>
-
-      {/* {props.data2?.fetchUserLoggedIn?._id ===
-        props.data?.fetchBoard?.user?._id && (
+      {props.data2?.fetchUserLoggedIn?.name ===
+        props.data?.fetchBoard?.writer && (
         <DS.ButtonWrapper>
           <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
           <DS.Button onClick={props.onClickMoveToBoardEdit}>수정하기</DS.Button>
@@ -67,12 +79,12 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
         </DS.ButtonWrapper>
       )}
 
-      {props.data2?.fetchUserLoggedIn?._id !==
-        props.data?.fetchBoard?.user?._id && (
+      {props.data2?.fetchUserLoggedIn?.name !==
+        props.data?.fetchBoard?.writer && (
         <DS.ButtonWrapper>
           <DS.Button onClick={props.onClickMoveToBoardList}>목록으로</DS.Button>
         </DS.ButtonWrapper>
-      )} */}
+      )}
     </DS.OutWrapper>
   );
 }

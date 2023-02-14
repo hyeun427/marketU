@@ -43,6 +43,7 @@ export interface IBoardWriteUIProps {
   address: string;
   addressDetail: string;
   fileUrls: string[];
+  loginUser: Pick<IQuery, "fetchUserLoggedIn">;
 }
 
 export interface ISubmitButtonProps {

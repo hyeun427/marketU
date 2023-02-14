@@ -3,7 +3,7 @@ import * as S from "./boardNew.style";
 import { IBoardWriteUIProps } from "./boardNew.types";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
-import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
+import Upload from "../../../commons/uploads/02/Uploads02.container";
 import { v4 as uuidv4 } from "uuid";
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
@@ -19,20 +19,8 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <S.WriterWrapper>
           <S.InputWrapper>
             <S.Label>작성자</S.Label>
-            <S.Writer
-              type="text"
-              placeholder="이름을 적어주세요."
-              onChange={props.onChangeWriter}
-              defaultValue={props.data?.fetchBoard.writer || ""}
-              readOnly={!!props.data?.fetchBoard.writer}
-            />
-            {/* <S.Writer
-              type="text"
-              placeholder="이름을 적어주세요."
-              onChange={props.onChangeWriter}
-              defaultValue={props.data?.fetchBoard.writer || ""}
-              readOnly={!!props.data?.fetchBoard.writer}
-            /> */}
+            <S.Writer>{props.loginUser?.fetchUserLoggedIn.name}</S.Writer>
+
             <S.Error>{props.writerError}</S.Error>
           </S.InputWrapper>
           <S.InputWrapper>
@@ -105,24 +93,31 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             defaultValue={props.data?.fetchBoard.youtubeUrl || ""}
           />
         </S.InputWrapper>
+
         <S.ImageWrapper>
           <S.Label>사진첨부</S.Label>
-          {props.fileUrls.map((el, index) => (
-            <Uploads01
-              key={uuidv4()}
-              index={index}
-              fileUrl={el}
-              onChangeFileUrls={props.onChangeFileUrls}
-            />
-          ))}
+          <S.ImagesWrapper>
+            {[...props.fileUrls, ""].map((el, index) => (
+              <S.UploadImage key={uuidv4()}>
+                <Upload
+                  type="button"
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+
+                {el !== "" && (
+                  <S.UploadImageDelete
+                    src="/img/icon/icon_close.svg"
+                    onClick={props.onClickDeleteImage(index)}
+                  />
+                )}
+              </S.UploadImage>
+            ))}
+          </S.ImagesWrapper>
         </S.ImageWrapper>
-        <S.OptionWrapper>
-          <S.Label>메인설정</S.Label>
-          <S.RadioButton type="radio" id="youtube" name="radio-button" />
-          <S.RadioLabel htmlFor="youtube">유튜브</S.RadioLabel>
-          <S.RadioButton type="radio" id="image" name="radio-button" />
-          <S.RadioLabel htmlFor="image">사진</S.RadioLabel>
-        </S.OptionWrapper>
+
         <S.ButtonWrapper>
           <S.SubmitButton
             onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}

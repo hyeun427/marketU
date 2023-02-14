@@ -33,6 +33,7 @@ export interface IProductWriteUIProps {
   onClickUpdate: (data: IProductWrite) => void;
   onChangeContents: (value: string) => void;
   onChangeFileUrls: (fileUrls: string, index: number) => void;
+  onClickDeleteImage: (arg: any) => () => void;
   onKeyUpHash: (event: any) => void;
   isOpen: Boolean;
   onClickCancel: () => void;

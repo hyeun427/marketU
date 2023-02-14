@@ -83,7 +83,7 @@ export default function UseditemsIBought(props: {
                 </S.ContentsUser>
                 <S.ContentsReact>
                   <div>
-                    <img src="/img/icon/icon_heart.svg" alt="찜" />
+                    <img src="/img/icon/heart.svg" alt="찜" />
                     <span>{el?.pickedCount}</span>
                   </div>
                 </S.ContentsReact>

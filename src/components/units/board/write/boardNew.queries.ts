@@ -23,3 +23,16 @@ export const UPDATE_BOARD = gql`
     }
   }
 `;
+
+const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      email
+      name
+      picture
+      userPoint {
+        amount
+      }
+    }
+  }
+`;
