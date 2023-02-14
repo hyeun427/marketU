@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const MainInput = styled.input`
-  margin-top: 30px;
+  margin: 10px 0px;
   padding-left: 10px;
   height: 64px;
   border-radius: 16px;
@@ -40,22 +40,8 @@ export const Error = styled.div`
   color: red;
 `;
 
-export const CheckboxWrapper = styled.div`
-  margin: 15px 0px 30px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-`;
-
-export const Checkbox = styled.input`
-  margin-right: 10px;
-`;
-
-export const BoxName = styled.div``;
-
-export const LogInButton = styled.button`
-  margin-bottom: 40px;
+export const Button = styled.button`
+  margin: 5px 0px;
   width: 100%;
   height: 64px;
   border-radius: 16px;
@@ -64,22 +50,5 @@ export const LogInButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #ffc6ce;
-  }
-`;
-
-export const Footer = styled.div`
-  padding: 29px 50px 0px;
-
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
-
-export const FooterInner = styled.div`
-  border: none;
-  cursor: pointer;
-  :hover {
-    color: #ffc6ce;
   }
 `;

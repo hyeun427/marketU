@@ -20,18 +20,9 @@ export default function LogInUI(props: ILoginUIProps) {
           />
           <S.Error>{props.passwordError}</S.Error>
         </S.InputWrapper>
-        <S.CheckboxWrapper>
-          {/* <S.Checkbox type="checkbox" />
-          <S.BoxName>로그인 상태 유지</S.BoxName> */}
-        </S.CheckboxWrapper>
-        <S.LogInButton onClick={props.onClickLogin}>로그인하기</S.LogInButton>
-        <S.Footer>
-          <S.FooterInner>이메일 찾기</S.FooterInner>
-          <div>|</div>
-          <S.FooterInner>비밀번호 찾기</S.FooterInner>
-          <div>|</div>
-          <S.FooterInner onClick={props.onClickSigin}>회원가입</S.FooterInner>
-        </S.Footer>
+
+        <S.Button onClick={props.onClickLogin}>로그인하기</S.Button>
+        <S.Button onClick={props.onClickSigin}>회원가입</S.Button>
       </S.Wrapper>
     </S.OutWrapper>
   );
