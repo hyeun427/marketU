@@ -1,17 +1,19 @@
 // 게시물 등록 및 수정 컨테이너
 import { ChangeEvent, useEffect, useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./boardNew.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./boardNew.queries";
 import { IBoardWriteProps, IUpdateBoardInput } from "./boardNew.types";
 import { Modal } from "antd";
 import { useAuth } from "../../../commons/hooks/useAuth";
+import { FETCH_USER_LOGGED_IN } from "../detail/BoardDetail.queries";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   useAuth();
   const router = useRouter();
-  const [writer, setWriter] = useState("");
+  // const [writer, setWriter] = useState("");
+
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
@@ -21,7 +23,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [addressDetail, setAddressDetail] = useState("");
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
-  const [writerError, setWriterError] = useState("");
+  // const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [contentsError, setContentsError] = useState("");
@@ -32,19 +34,9 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // 작성자 작성할 때
-  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
-    setWriter(event.target.value);
-    if (event.target.value !== "") {
-      setWriterError("");
-    }
-
-    if (event.target.value && password && title && contents) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
-  };
+  // 작성자
+  const { data: loginUser } = useQuery(FETCH_USER_LOGGED_IN);
+  const writer = loginUser?.fetchUserLoggedIn.name;
 
   // 비밀번호 작성할 때
 
@@ -54,7 +46,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       setPasswordError("");
     }
 
-    if (writer && event.target.value && title && contents) {
+    if (event.target.value && title && contents) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -68,7 +60,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       setTitleError("");
     }
 
-    if (writer && password && event.target.value && contents) {
+    if (password && event.target.value && contents) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -82,7 +74,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       setContentsError("");
     }
 
-    if (writer && password && title && event.target.value) {
+    if (password && title && event.target.value) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -118,11 +110,14 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setFileUrls(newFileUrls);
   };
 
+  // 이미지 삭제
+  const onClickDeleteImage = (arg: number) => () => {
+    setFileUrls(fileUrls.filter((_, index) => index !== arg));
+  };
+
   // 등록하기 버튼 누르기전에 모두 입력했는지 확인, 다 적혔으면 백엔드서버에 저장
   const onClickSubmit = async () => {
-    if (writer === "") {
-      setWriterError("작성자를 입력하세요.");
-    }
+    console.log(writer, "??");
     if (password === "") {
       setPasswordError("비밀번호를 입력하세요.");
     }
@@ -158,7 +153,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
         });
         router.push(`/boards/${result.data.createBoard._id}`);
       } catch (error) {
-        //alert(error);
         Modal.error({ content: error.message });
       }
     }
@@ -229,11 +223,9 @@ export default function BoardWrite(props: IBoardWriteProps) {
   return (
     <BoardWriteUI
       isActive={isActive}
-      writerError={writerError}
       passwordError={passwordError}
       titleError={titleError}
       contentsError={contentsError}
-      onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
@@ -242,6 +234,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onClickAddressSearch={onClickAddressSearch}
       onCompleteAddressSearch={onCompleteAddressSearch}
       onChangeFileUrls={onChangeFileUrls}
+      onClickDeleteImage={onClickDeleteImage}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
@@ -252,6 +245,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       addressDetail={addressDetail}
       fileUrls={fileUrls}
       onClickCancel={onClickCancel}
+      loginUser={loginUser}
     />
   );
 }

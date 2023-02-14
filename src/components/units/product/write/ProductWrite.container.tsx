@@ -50,7 +50,7 @@ export default function ProductWrite(props: IProductWriteProps) {
   });
 
   // 이미지
-  const [fileUrls, setFileUrls] = useState(["", "", ""]);
+  const [fileUrls, setFileUrls] = useState<string[]>(["", ""]);
 
   // 작성된 컨텐츠 정보 불러오기
   const { data: data1 } = useQuery(FETCH_USED_ITEM, {
@@ -66,7 +66,6 @@ export default function ProductWrite(props: IProductWriteProps) {
   // form내 에디터 부분 - 상품설명 onChange
   const onChangeContents = (value: string) => {
     setValue("contents", value === "<p><br></p>" ? "" : value);
-    //console.log(value);
     trigger("contents");
   };
 
@@ -105,7 +104,7 @@ export default function ProductWrite(props: IProductWriteProps) {
   const onChangeFileUrls = (fileUrl: string, index: number) => {
     const newFileUrls = [...fileUrls];
     newFileUrls[index] = fileUrl;
-    setFileUrls(newFileUrls);
+    setFileUrls([...newFileUrls]);
   };
 
   useEffect(() => {
@@ -113,6 +112,11 @@ export default function ProductWrite(props: IProductWriteProps) {
       setFileUrls([...props.data?.images]);
     }
   }, [props.data]);
+
+  // 이미지 삭제
+  const onClickDeleteImage = (arg: number) => () => {
+    setFileUrls(fileUrls.filter((_, index) => index !== arg));
+  };
 
   // 상품 등록버튼
   const onClickSubmit = async (data) => {
@@ -136,7 +140,6 @@ export default function ProductWrite(props: IProductWriteProps) {
           },
         },
       });
-      // console.log(result);
       Modal.success({ content: "상품 등록에 성공하였습니다!" });
       router.push(`/products/${result.data.createUseditem._id}`);
     } catch (error) {
@@ -213,6 +216,7 @@ export default function ProductWrite(props: IProductWriteProps) {
       // 이미지
       onChangeFileUrls={onChangeFileUrls}
       fileUrls={fileUrls}
+      onClickDeleteImage={onClickDeleteImage}
       // 태그
       hashArr={hashArr}
       onKeyUpHash={onKeyUpHash}

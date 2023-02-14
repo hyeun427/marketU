@@ -46,7 +46,7 @@ export default function ProductListUI(props: IProductListUI) {
                         />
                       </>
                     ) : (
-                      <S.ItemPicture src="/ProductDetail/no-img.png" />
+                      <S.ItemPicture src="/img/icon/noImage.png" />
                     )}
                     <S.ItemListDetail>
                       <S.ItemListDetailName
@@ -60,11 +60,11 @@ export default function ProductListUI(props: IProductListUI) {
                       </S.ItemListDetailRemarks>
                       <S.ItemListDetailTags>{el.tags}</S.ItemListDetailTags>
                       <S.ItemListDetailBottom>
-                        <S.ItemListDetailSellerIcon src="/ProductList/profile.png" />
+                        <S.ItemListDetailSellerIcon src="/img/icon/smile.png" />
                         <S.ItemListDetailSeller>
                           {el.seller.name}
                         </S.ItemListDetailSeller>
-                        <S.ItemListDetailPickedIcon src="/ProductList/pick.png" />
+                        <S.ItemListDetailPickedIcon src="/img/icon/heart.svg" />
                         <S.ItemListDetailPickedCount>
                           {el.pickedCount}
                         </S.ItemListDetailPickedCount>

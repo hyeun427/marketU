@@ -1,21 +1,20 @@
 // 게시물 등록 및 수정 프리젠터
-import { EnvironmentTwoTone } from "@ant-design/icons";
-import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
+
 import * as S from "./ProductWrite.style";
 import { IProductWriteUIProps } from "./ProductWrite.types";
 import { v4 as uuidv4 } from "uuid";
 import KakaoMap01 from "../../../commons/kakaoMap/01";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
+import Upload from "../../../commons/uploads/02/Uploads02.container";
 
 export default function ProductWriteUI(props: IProductWriteUIProps) {
+  console.log(props.data1?.fetchUseditem.price, "?ELdyd");
   return (
     <form
-      onSubmit={
-        props.isEdit
-          ? props.handleSubmit(props.onClickUpdate)
-          : props.handleSubmit(props.onClickSubmit)
-      }
+      onSubmit={props.handleSubmit(
+        props.isEdit ? props.onClickUpdate : props.onClickSubmit
+      )}
     >
       <S.Wrapper>
         <S.Title>{props.isEdit ? "상품 수정" : "상품 등록"}</S.Title>
@@ -66,7 +65,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
             type="text"
             placeholder="판매 가격을 입력해주세요."
             {...props.register("price")}
-            // defaultValue={Number(props.data1?.fetchUseditem.price)}
+            defaultValue={Number(props.data1?.fetchUseditem.price || "")}
           />
           <S.Error>{props.formState.errors.price?.message}</S.Error>
         </S.InputWrapper>
@@ -135,27 +134,6 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 )}
               </S.MapDetailWrapperHead>
               <S.MapDetailWrapperBottom>
-                {/* <S.LocationDetail>
-                  <S.Lat
-                    placeholder="위도(LAT)"
-                    readOnly={true}
-                    value={
-                      props.lat ||
-                      props.data?.fetchUseditem.useditemAddress?.lat ||
-                      ""
-                    }
-                  />
-                  <EnvironmentTwoTone />
-                  <S.Lng
-                    placeholder="경도(LNG)"
-                    readOnly={true}
-                    value={
-                      props.lng ||
-                      props.data?.fetchUseditem.useditemAddress?.lng ||
-                      ""
-                    }
-                  />
-                </S.LocationDetail> */}
                 <S.MapDetailAddress
                   readOnly={true}
                   value={
@@ -180,27 +158,32 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
 
         <S.ImageWrapper>
           <S.Label>사진첨부</S.Label>
-          {props.fileUrls.map((el, index) => (
-            <Uploads01
-              key={uuidv4()}
-              index={index}
-              fileUrl={el}
-              onChangeFileUrls={props.onChangeFileUrls}
-            />
-          ))}
+          <S.ImagesWrapper>
+            {[...props.fileUrls, ""].map((el, index) => (
+              <S.UploadImage key={uuidv4()}>
+                <Upload
+                  type="button"
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+
+                {el !== "" && (
+                  <S.UploadImageDelete
+                    src="/img/icon/icon_close.svg"
+                    onClick={props.onClickDeleteImage(index)}
+                  />
+                )}
+              </S.UploadImage>
+            ))}
+          </S.ImagesWrapper>
         </S.ImageWrapper>
-        <S.ImgSelectWrapper>
-          <S.Label>메인 사진 설정</S.Label>
-          <S.RadioWrapper>
-            <S.RadioButton type="radio"></S.RadioButton>
-            <S.ImgSelect>사진 1</S.ImgSelect>
-            <S.RadioButton type="radio"></S.RadioButton>
-            <S.ImgSelect>사진 2</S.ImgSelect>
-          </S.RadioWrapper>
-        </S.ImgSelectWrapper>
 
         <S.ButtonWrapper>
-          <S.SubmitButton>
+          <S.SubmitButton
+            onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
+          >
             {props.isEdit ? "수정하기" : "등록하기"}
           </S.SubmitButton>
           <S.SubmitButton onClick={props.onClickCancel}>취소</S.SubmitButton>

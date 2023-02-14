@@ -23,7 +23,7 @@ const Button = styled.button`
   }
 `;
 
-export default function button02(props: IButtonComponent) {
+export default function Button02(props: IButtonComponent) {
   const { style, text } = props;
   return (
     <Button style={style || {}} onClick={props.onClick}>

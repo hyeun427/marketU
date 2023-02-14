@@ -218,3 +218,30 @@ export const HashTag = styled.div`
     background-color: #848484;
   }
 `;
+
+// 여기
+export const ImagesWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const UploadImage = styled.div`
+  position: relative;
+`;
+export const UploadImageDelete = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 5px;
+  background-color: #ffffffbb;
+  border-radius: 50%;
+  cursor: pointer;
+
+  :hover {
+    background-color: #ffcf07bb;
+  }
+`;

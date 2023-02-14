@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { LikeOutlined, DislikeOutlined } from "@ant-design/icons";
 import ReactPlayer from "react-player";
+import { breakPoints } from "../../../../commons/styles/media";
 
 // OutWrapper는 아래 댓글 창까지 만들 때 수정/삭제 할 것.
 export const OutWrapper = styled.div`
@@ -35,6 +36,7 @@ export const Profile = styled.div`
 `;
 export const Photo = styled.img`
   margin-right: 10px;
+  width: 45px;
 `;
 export const ProfileDetail = styled.div`
   display: flex;
@@ -121,5 +123,44 @@ export const Button = styled.button`
 
   :hover {
     background-color: #ffc6ce;
+  }
+`;
+// 이미지
+export const SliderWrapper = styled.div`
+  width: 100%;
+  height: 384px;
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+`;
+
+export const SliderItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+`;
+
+export const SliderImg = styled.img`
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+
+  @media ${breakPoints.tablet} {
+    margin-bottom: 60px;
+  }
+  @media ${breakPoints.mobile} {
+    margin-bottom: 30px;
   }
 `;

@@ -30,11 +30,14 @@ export const WriterWrapper = styled.div`
   padding-top: 40px;
 `;
 
-export const Writer = styled.input`
+export const Writer = styled.div`
   width: 486px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 export const Password = styled.input`
@@ -175,4 +178,30 @@ export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;
   color: red;
+`;
+
+export const ImagesWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const UploadImage = styled.div`
+  position: relative;
+`;
+export const UploadImageDelete = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 5px;
+  background-color: #ffffffbb;
+  border-radius: 50%;
+  cursor: pointer;
+
+  :hover {
+    background-color: #ffcf07bb;
+  }
 `;

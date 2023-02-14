@@ -5,26 +5,15 @@ import { IProductDetaulUIProps } from "./ProductDetail.types";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 import KakaoMap02 from "../../../commons/kakaoMap/02";
-import MarketComment from "../../comment";
-import { FETCH_USED_ITEM } from "./ProductDetail.queries";
 
 export default function ProductDetailUI(props: IProductDetaulUIProps) {
-  // 이미지 슬라이더
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
     <S.OutWrapper>
       {/* 프로필, 날짜, 위치 부분 */}
       <S.Header>
         <S.ProfileWrapper>
           <S.Profile>
-            <S.Photo src="/ProductDetail/profile.png" />
+            <S.Photo src="/img/icon/smile.png" />
             <S.ProfileDetail>
               <S.Seller>{props.data?.fetchUseditem?.seller?.name}</S.Seller>
               <S.Date>{getDate(props.data?.fetchUseditem?.createdAt)}</S.Date>
@@ -32,9 +21,9 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
           </S.Profile>
 
           <S.IconWrapper>
-            <S.Share src="/ProductDetail/share.png" />
+            <S.Share src="/img/icon/share.png" />
             <Tooltip placement="topRight" title={"주소가 없습니다."}>
-              <S.Spot src="/ProductDetail/spot.png" />
+              <S.Spot src="/img/icon/spot.png" />
             </Tooltip>
           </S.IconWrapper>
         </S.ProfileWrapper>
@@ -46,10 +35,7 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         <S.Title>
           <S.ProductName>{props.data?.fetchUseditem.name}</S.ProductName>
           <S.PickWrapper>
-            <S.PickIcon
-              src="/ProductDetail/pick.png"
-              onClick={props.onClickPick}
-            />
+            <S.PickIcon src="/img/icon/pick.png" onClick={props.onClickPick} />
             <S.Pick>{props.data?.fetchUseditem.pickedCount}</S.Pick>
           </S.PickWrapper>
         </S.Title>
@@ -70,10 +56,22 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
                 props.data?.fetchUseditem.images.filter((el) => el !== "")[0]
               }`}
             />
+
+            <S.SliderImg
+              src={`https://storage.googleapis.com/${
+                props.data?.fetchUseditem.images.filter((el) => el !== "")[1]
+              }`}
+            />
+
+            <S.SliderImg
+              src={`https://storage.googleapis.com/${
+                props.data?.fetchUseditem.images.filter((el) => el !== "")[2]
+              }`}
+            />
           </S.SliderWrapper>
         ) : (
           <S.SliderWrapper>
-            <S.SliderImg src="/ProductDetail/no-img.png" />
+            <S.SliderImg src="/img/icon/noImage.png" />
           </S.SliderWrapper>
         )}
 
