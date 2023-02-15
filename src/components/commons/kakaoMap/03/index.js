@@ -25,7 +25,7 @@ const Map2 = styled.div`
   }
 `;
 
-export default function KakaoMap2(props) {
+export default function KakaoMap3(props) {
   const address = String(props.address);
   useEffect(() => {
     const script = document.createElement("script");

@@ -1,5 +1,4 @@
 // 게시물 등록 및 수정 프리젠터
-
 import * as S from "./ProductWrite.style";
 import { IProductWriteUIProps } from "./ProductWrite.types";
 import { v4 as uuidv4 } from "uuid";
@@ -26,10 +25,11 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                     index={index}
                     fileUrl={el}
                     onChangeFileUrls={props.onChangeFileUrls}
+                    defaultValue={`https://storage.googleapis.com/${el}` || ""}
                   />
-                  <S.DeleteBtn onClick={props.onClickDeleteImage(index)}>
-                    X
-                  </S.DeleteBtn>
+                  <S.DeleteBtn
+                    onClick={props.onClickDeleteImage(index)}
+                  ></S.DeleteBtn>
                 </div>
               );
           })}
@@ -82,7 +82,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 style={{ height: 220 }}
                 id="contents"
                 placeholder="상품을 설명해주세요."
-                defaultValue={props.data1?.fetchUseditem.contents}
+                defaultValue={props.data1?.fetchUseditem.contents || ""}
               />
               <S.Error>{props.formState.errors.contents?.message}</S.Error>
             </S.ReactQuillWrapper>
@@ -96,7 +96,6 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
               placeholder="태그를 입력하고 스페이스바를 눌러주세요. 작성한 태그를 눌러서 삭제할 수 있어요."
               {...props.register("tags")}
               onKeyUp={props.onKeyUpHash}
-              defaultValue={props.data1?.fetchUseditem.tags || ""}
             />
             <span>
               {props.hashArr.map((el, idx) => (
@@ -127,13 +126,14 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                       : props.data?.fetchUseditem.useditemAddress?.zipcode
                   }
                   readOnly={true}
+                  defaultValue={props.zipcode || ""}
                 />
                 <S.AddressSearch onClick={props.onClickModal}>
                   우편번호 검색
                 </S.AddressSearch>
                 {props.isOpen && (
                   <Modal
-                    visible={true}
+                    open={true}
                     title={"우편번호 검색"}
                     onOk={props.onClickModal}
                     onCancel={props.onClickModal}

@@ -3,8 +3,6 @@ import ProductListUI from "./ProductList.presenter";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
-import { useRecoilState } from "recoil";
-import { watchListState } from "../../../../commons/store";
 import { debounce } from "lodash";
 import { FETCH_USED_ITEMS } from "./ProductList.queries";
 import { ChangeEvent } from "react";
@@ -35,17 +33,9 @@ export default function ProductList() {
   };
 
   // 제품 사진 눌렀을 때 디테일 페이지 이동
-  const onClickMoveDetail =
-    (el: any) => (event: MouseEvent<HTMLDivElement>) => {
-      const watch = JSON.parse(localStorage.getItem("watch") || "[]");
-
-      const { __typename, ...newEl } = el;
-      watch.push(newEl);
-      localStorage.setItem("watch", JSON.stringify(watch));
-      setWatchProduct(watch.slice(watch.length - 3, watch.length));
-
-      router.push(`/products/${event.currentTarget.id}`);
-    };
+  const onClickMoveDetail = () => (event: MouseEvent<HTMLDivElement>) => {
+    router.push(`/products/${event.currentTarget.id}`);
+  };
 
   // 무한 스크롤
   const onLoadMore = () => {
@@ -67,9 +57,6 @@ export default function ProductList() {
       },
     });
   };
-
-  // 최근 본 상품
-  const [watchProduct, setWatchProduct] = useRecoilState(watchListState);
 
   return (
     <ProductListUI

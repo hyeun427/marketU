@@ -22,18 +22,6 @@ export const restoreAccessTokenLoadable = selector({
   },
 });
 
-// 장바구니 목록
-export const basketstate = atom({
-  key: "basket",
-  default: [],
-});
-
-// 최근 본 상품 목록
-export const watchListState = atom({
-  key: "watchProductList",
-  default: [],
-});
-
 // 커뮤니티 총 페이지
 export const boardsPageState = atom({
   key: "boardsPageState",

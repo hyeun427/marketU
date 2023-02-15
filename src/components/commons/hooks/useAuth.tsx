@@ -18,7 +18,7 @@ export function useAuth() {
       if (!accessToken) {
         accessTokenHasValue.toPromise().then((newAccessToken) => {
           if (!newAccessToken) {
-            alert("로그인 후 이용 가능합니다!!!");
+            alert("로그인 후 이용 가능합니다!");
             router.push("/logIn");
           }
         });

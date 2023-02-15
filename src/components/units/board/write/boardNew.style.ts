@@ -205,3 +205,15 @@ export const UploadImageDelete = styled.img`
     background-color: #ffcf07bb;
   }
 `;
+
+export const DeleteBtn = styled.button`
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 30px;
+  border: none;
+  background: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+`;
