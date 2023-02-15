@@ -7,6 +7,6 @@ export interface ILoginUIProps {
   emailMessage: string;
   onChangeEmail: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickLogin: () => void;
+  onClickLogin: (data: { email?: string; password?: string }) => Promise<void>;
   onClickSigin: () => void;
 }

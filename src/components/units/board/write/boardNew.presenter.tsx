@@ -10,7 +10,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
   return (
     <>
       {props.isOpen && (
-        <Modal visible={true}>
+        <Modal open={true}>
           <DaumPostcode onComplete={props.onCompleteAddressSearch} />
         </Modal>
       )}
@@ -96,26 +96,25 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
 
         <S.ImageWrapper>
           <S.Label>사진첨부</S.Label>
-          <S.ImagesWrapper>
-            {[...props.fileUrls, ""].map((el, index) => (
-              <S.UploadImage key={uuidv4()}>
-                <Upload
-                  type="button"
-                  key={uuidv4()}
-                  index={index}
-                  fileUrl={el}
-                  onChangeFileUrls={props.onChangeFileUrls}
-                />
 
-                {el !== "" && (
-                  <S.UploadImageDelete
-                    src="/img/icon/icon_close.svg"
-                    onClick={props.onClickDeleteImage(index)}
+          {props.fileUrls.map((el: any, index: number) => {
+            if (index === 0)
+              return (
+                <div>
+                  <Upload
+                    type="button"
+                    key={uuidv4()}
+                    index={index}
+                    fileUrl={el}
+                    onChangeFileUrls={props.onChangeFileUrls}
+                    defaultValue={`https://storage.googleapis.com/${el}` || ""}
                   />
-                )}
-              </S.UploadImage>
-            ))}
-          </S.ImagesWrapper>
+                  <S.DeleteBtn
+                    onClick={props.onClickDeleteImage(index)}
+                  ></S.DeleteBtn>
+                </div>
+              );
+          })}
         </S.ImageWrapper>
 
         <S.ButtonWrapper>

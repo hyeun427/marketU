@@ -14,7 +14,6 @@ import {
 import { useRouter } from "next/router";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
-import { useAuth } from "../../../commons/hooks/useAuth";
 
 // 에디터
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -30,7 +29,6 @@ const schema = yup.object({
 });
 
 export default function ProductWrite(props: IProductWriteProps) {
-  useAuth();
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const router = useRouter();
@@ -93,6 +91,7 @@ export default function ProductWrite(props: IProductWriteProps) {
     setIsOpen((prev) => !prev);
     setAddress(address.address);
     setZipcode(address.zonecode);
+    // console.log(address.zonecode, "우편번호1");
     setAddressDetail("");
   };
 
@@ -107,21 +106,12 @@ export default function ProductWrite(props: IProductWriteProps) {
     setFileUrls([...newFileUrls]);
   };
 
-  // useEffect(() => {
-  //   if (props.data?.images?.length) {
-  //     setFileUrls([...props.data?.images]);
-  //   }
-  // }, [props.data]);
-
   // 이미지 삭제
   const onClickDeleteImage = (index: number) => () => {
     const newFileUrls = [...fileUrls];
     newFileUrls.splice(index, 1);
     setFileUrls(newFileUrls);
   };
-  // const onClickDeleteImage = (arg: number) => () => {
-  //   setFileUrls(fileUrls.filter((_, index) => index !== arg));
-  // };
 
   // 상품 등록버튼
   const onClickSubmit = async (data) => {
@@ -136,10 +126,10 @@ export default function ProductWrite(props: IProductWriteProps) {
             tags: hashArr,
             images: fileUrls,
             useditemAddress: {
-              zipcode: data.zipcode,
-              address: data.address,
-              lat: Number(lat),
-              lng: Number(lng),
+              zipcode: zipcode,
+              address: address,
+              lat: Number(data.lat),
+              lng: Number(data.lng),
               addressDetail: data.addressDetail,
             },
           },
@@ -150,6 +140,7 @@ export default function ProductWrite(props: IProductWriteProps) {
     } catch (error) {
       Modal.error({ content: error.message });
     }
+    console.log(zipcode, "우편번호2");
   };
 
   // 상품 수정하기
@@ -186,35 +177,8 @@ export default function ProductWrite(props: IProductWriteProps) {
       if (error instanceof Error)
         Modal.error({ content: "수정되지 않았습니다." });
     }
+    console.log(zipcode, "우편번호3");
   };
-
-  // const onClcikEditProduct = async (data: any) => {
-  //   const currentFiles = JSON.stringify(fileUrls);
-  //   const defaultFiles = JSON.stringify(props.data?.fetchUseditem?.images);
-  //   const isChangedFiles = currentFiles !== defaultFiles;
-
-  //   const editHashArr = [...props.data?.fetchUseditem.tags, ...hashArr];
-  //   const updateUseditemInput = {};
-  //   if (isChangedFiles) updateUseditemInput.images = fileUrls;
-
-  //   try {
-  //     const editResult = await updateUseditem({
-  //       variables: {
-  //         updateUseditemInput: {
-  //           ...data,
-  //           images: fileUrls,
-  //           tags: editHashArr,
-  //         },
-  //         useditemId: String(router.query.productsId),
-  //       },
-  //     });
-  //     Modal.success({ content: "상품이 수정이 완료되었습니다." });
-  //     router.push(`/products/${editResult.data?.updateUseditem._id}`);
-  //   } catch (error) {
-  //     if (error instanceof Error)
-  //       Modal.error({ content: "수정되지 않았습니다." });
-  //   }
-  // };
 
   // 취소하기
   const onClickCancel = () => {

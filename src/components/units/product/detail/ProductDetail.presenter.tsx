@@ -49,7 +49,7 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         </S.Price>
 
         {/* 이미지 슬라이더 */}
-        {props.data?.fetchUseditem?.images ? (
+        {props.data?.fetchUseditem?.images[0] !== "" ? (
           <S.SliderWrapper>
             <S.SliderImg
               src={`https://storage.googleapis.com/${
@@ -84,11 +84,14 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         </S.TagWrapper>
 
         {/* 지도 */}
-        <S.Map>
-          <KakaoMap02
-            address={props.data?.fetchUseditem?.useditemAddress?.address || ""}
-          />
-        </S.Map>
+        <KakaoMap02
+          tradeLat={props.data?.fetchUseditem.useditemAddress?.lat}
+          tradeLng={props.data?.fetchUseditem.useditemAddress?.lng}
+          tradeAddress={props.data?.fetchUseditem.useditemAddress?.address}
+          tradeAddressDetail={
+            props.data?.fetchUseditem.useditemAddress?.addressDetail
+          }
+        />
       </S.Body>
 
       {/* 버튼*/}

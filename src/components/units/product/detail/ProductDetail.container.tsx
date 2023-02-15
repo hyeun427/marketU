@@ -9,17 +9,17 @@ import {
 import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { basketstate } from "../../../../commons/store";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
+import { accessTokenState } from "../../../../commons/store";
 
 export default function ProductDetail() {
   const router = useRouter();
+  const accessToken = useRecoilValue(accessTokenState);
 
   // 상품 데이터 불러오기
   const { data, refetch } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.productsId },
   });
-  console.log(data);
 
   // 상품 찜하기
   const [toggleUseditemPick] = useMutation(USED_ITEM_PICK);
@@ -35,11 +35,12 @@ export default function ProductDetail() {
     CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
   );
 
-  // 장바구니
-  const [basket1, setBasket1] = useRecoilState(basketstate);
-
   // 찜하기 버튼 누를 때
   const onClickPick = async () => {
+    if (!accessToken) {
+      alert("로그인 후 이용 가능합니다!");
+      return router.push("/logIn");
+    }
     try {
       await toggleUseditemPick({
         variables: { useditemId: String(router.query.productsId) },
@@ -58,6 +59,10 @@ export default function ProductDetail() {
 
   // 바로 구매하기
   const onClickBuy = async () => {
+    if (!accessToken) {
+      alert("로그인 후 이용 가능합니다!");
+      return router.push("/logIn");
+    }
     if (
       data2?.fetchUserLoggedIn.userPoint.amount >= data?.fetchUseditem.price
     ) {
@@ -73,7 +78,7 @@ export default function ProductDetail() {
       }
     } else {
       alert("포인트를 충전해 주세요");
-      router.push("/products");
+      router.back();
     }
   };
 
@@ -115,7 +120,6 @@ export default function ProductDetail() {
       onClickMoveToEdit={onClickMoveToEdit}
       onClickCancel={onClickCancel}
       onClickDelete={onClickDelete}
-      // onClickBasket={onClickBasket}
     />
   );
 }

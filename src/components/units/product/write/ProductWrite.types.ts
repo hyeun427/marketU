@@ -2,6 +2,7 @@ import { ComponentType } from "react";
 import {
   FieldValues,
   FormState,
+  UseFormGetValues,
   UseFormHandleSubmit,
   UseFormRegister,
   UseFormSetValue,
@@ -15,7 +16,20 @@ export interface IProductWrite {
   price?: string;
   contents?: string;
   tags?: string;
+  images?: string[];
+  zipcode?: string;
+  address?: string;
+  addressDetail?: string;
+  lat?: number;
+  lng?: number;
 }
+// export interface IProductWrite {
+//   name?: string;
+//   remarks?: string;
+//   price?: string;
+//   contents?: string;
+//   tags?: string;
+// }
 
 export interface IProductWriteUIProps {
   ReactQuill: ComponentType<ReactQuill.ComponentProps>;
@@ -23,6 +37,7 @@ export interface IProductWriteUIProps {
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   formState: FormState<FieldValues>;
   setValue: UseFormSetValue<FieldValues>;
+  getValues: UseFormGetValues<FieldValues>;
   trigger: UseFormTrigger<FieldValues>;
   data?: Pick<IQuery, "fetchUseditem">;
   data1?: Pick<IQuery, "fetchUseditem">;
@@ -37,6 +52,7 @@ export interface IProductWriteUIProps {
   onKeyUpHash: (event: any) => void;
   isOpen: Boolean;
   onClickCancel: () => void;
+  zipcode?: string;
 }
 
 export interface IProductWriteProps {

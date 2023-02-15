@@ -36,6 +36,7 @@ export interface IBoardWriteUIProps {
   onClickSubmit: () => void;
   onClickUpdate: () => void;
   onClickCancel: () => void;
+  onClickDeleteImage: (arg: any) => () => void;
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
   isOpen: boolean;

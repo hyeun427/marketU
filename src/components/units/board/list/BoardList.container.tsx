@@ -25,8 +25,6 @@ export default function BoardList() {
     IQueryFetchBoardsCountArgs
   >(FETCH_BOARDS_COUNT);
 
-  console.log(data?.fetchBoards._id);
-
   // 등록하기 페이지로 연결
   const onClickMoveToBoardNew = () => {
     router.push("/boards/new");

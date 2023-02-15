@@ -22,6 +22,10 @@ export default function LogInPage() {
   const client = useApolloClient();
   const router = useRouter();
 
+  const [alertModal, setAlertModal] = useState(false);
+  const [modalContents, setModalContents] = useState("");
+  const [errorAlertModal, setErrorAlertModal] = useState(false);
+
   // 이메일 입력, 유효성 검사
   const onChangeEmail = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const emailRegex =
@@ -47,7 +51,7 @@ export default function LogInPage() {
   };
 
   // 로그인 버튼 누를 때
-  const onClickLogin = async () => {
+  const onClickLogin = async (data: { email?: string; password?: string }) => {
     if (email === "") {
       setEmailError("이메일을 입력해주세요");
     }
@@ -80,13 +84,10 @@ export default function LogInPage() {
           name: resultUserInfo.data.fetchUserLoggedIn.name,
         };
         setUserInfo(userInfo);
-
+        alert("로그인에 성공하였습니다.");
         router.back();
-        Modal.success({
-          content: "로그인이 성공하였습니다.",
-        });
       } catch (error) {
-        Modal.error({ content: error.message });
+        if (error instanceof Error) alert(error.message);
       }
     }
   };
