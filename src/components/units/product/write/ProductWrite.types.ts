@@ -28,12 +28,12 @@ export interface IProductWriteUIProps {
   data1?: Pick<IQuery, "fetchUseditem">;
   isEdit: Boolean;
   fileUrls: string[];
-  hashArr: string[];
   onClickSubmit: (data: IProductWrite) => void;
   onClickUpdate: (data: IProductWrite) => void;
   onChangeContents: (value: string) => void;
   onChangeFileUrls: (fileUrls: string, index: number) => void;
   onClickDeleteImage: (arg: any) => () => void;
+  hashArr: string[];
   onKeyUpHash: (event: any) => void;
   isOpen: Boolean;
   onClickCancel: () => void;

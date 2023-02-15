@@ -2,19 +2,19 @@ import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
 export const UploadImage = styled.img`
-  width: 590px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid #d9d9d9; */
+
   @media ${breakPoints.tablet} {
-    width: 500px;
-    height: 650px;
+    width: 90%;
   }
   @media ${breakPoints.mobile} {
-    width: 300px;
-    height: 400px;
+    width: 80%;
   }
 `;
 
@@ -31,7 +31,7 @@ export const UploadBtn = styled.button`
   outline: none;
   cursor: pointer;
   :hover {
-    background: #184124;
+    background: #ff9f9e;
     color: white;
     transition: all 0.5s;
   }

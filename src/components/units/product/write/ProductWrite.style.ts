@@ -1,208 +1,133 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
-  width: 1200px;
-  border: 1px solid black;
-  margin: 100px;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
-  border: none;
-  box-shadow: 0px 0px 10px gray;
+  width: 70vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
-export const Title = styled.div`
+export const left = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid #d9d9d9;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+    width: 100%;
+    height: 250px;
+  }
+`;
+
+export const DeleteBtn = styled.button`
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 30px;
+  border: none;
+  background: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+`;
+
+export const right = styled.section`
+  width: 45%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-  padding-bottom: 80px;
+  justify-content: space-between;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    margin-top: 10px;
+  }
 `;
 
-export const InputWrapper = styled.div`
+export const Inner = styled.div`
   width: 100%;
-  margin: 0px 0px;
-  margin-bottom: 30px;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+  }
 `;
 
-export const Label = styled.div`
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
+export const Label = styled.h1`
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+  @media ${breakPoints.tablet} {
+    font-size: 12px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
 
-export const ProductName = styled.input`
+export const Input = styled.input`
   width: 100%;
-  height: 52px;
+  height: 40px;
   border: 1px solid #bdbdbd;
+  margin-top: 2px;
   padding-left: 10px;
+  outline: none;
+
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    height: 30px;
+    ::placeholder {
+      font-size: 10px;
+    }
+  }
 `;
 
-export const ProductDetail = styled.input`
-  width: 100%;
-  height: 52px;
-  border: 1px solid #bdbdbd;
+export const Error = styled.div`
+  margin: 2px 0px;
   padding-left: 10px;
+  font-size: 10px;
+  color: red;
+  @media ${breakPoints.tablet} {
+    font-size: 7px;
+  }
+  @media ${breakPoints.mobile} {
+    margin-bottom: 10px;
+    font-size: 5px;
+  }
+`;
+
+export const InnerWrapeer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  div {
+    width: 49%;
+  }
 `;
 
 export const ReactQuillWrapper = styled.div`
   .ql-container {
-    height: 280px;
+    height: 180px;
   }
 `;
 
-export const Price = styled.input`
-  width: 100%;
-  height: 52px;
-  border: 1px solid #bdbdbd;
-  padding-left: 10px;
-`;
-
-export const Tag = styled.input`
-  width: 100%;
-  height: 52px;
-  border: 1px solid #bdbdbd;
-  padding-left: 10px;
-`;
-
-export const Error = styled.div`
-  margin-top: 3px;
-  padding-left: 10px;
-  font-size: 12px;
-  color: red;
-`;
-
-// 지도
-export const MapWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 40px;
-`;
-
-export const MapLeftWrapper = styled.div``;
-export const MapRightWrapper = styled.div`
-  margin-left: 20px;
-`;
-
-export const MapDetailWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 588px;
-`;
-
-export const MapDetailWrapperHead = styled.div`
-  display: flex;
-  margin-bottom: 25px;
-`;
-
-export const AddressNumber = styled.input`
-  width: 85px;
-  height: 40px;
-  border: 1px solid #bdbdbd;
-  padding-left: 5px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-`;
-
-export const AddressSearch = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 40px;
-  background-color: black;
-  border: 0px;
-  color: white;
-  font-size: 13px;
-  margin-bottom: 10px;
-  cursor: pointer;
-`;
-
-export const MapDetailWrapperBottom = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-export const LocationDetail = styled.div``;
-export const Lat = styled.input`
-  width: 95px;
-  height: 42px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-`;
-export const Lng = styled.input`
-  width: 95px;
-  height: 42px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-`;
-
-export const MapDetailAddress = styled.input`
-  width: 100%;
-  height: 42px;
-  border: 0px;
-  margin-top: 15px;
-  padding-left: 10px;
-  background-color: #e9e9e9;
-`;
-
-// 이미지
-export const ImageWrapper = styled.div``;
-
-export const Image = styled.button`
-  width: 180px;
-  height: 180px;
-  background-color: #bdbdbd;
-  margin-right: 24px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-`;
-export const ImgSelectWrapper = styled.div`
-  margin: 40px 0px;
-`;
-
-export const RadioWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-export const RadioButton = styled.input`
-  margin-right: 14px;
-`;
-export const ImgSelect = styled.div`
-  margin-right: 24px;
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const SubmitButton = styled.button`
-  width: 179px;
-  height: 52px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 12px;
-  margin-right: 12px;
-  cursor: pointer;
-  background: #bdbdbd;
-  :hover {
-    background-color: #ffc6ce;
-    color: white;
-  }
-`;
-
-export const HashTagWrapper = styled.div`
-  padding: 10px 10px 0 0;
+// 태그
+export const HashTagWrapper = styled.span`
+  padding: 5px 5px 0 0;
 `;
 
 export const HashTag = styled.div`
@@ -219,29 +144,95 @@ export const HashTag = styled.div`
   }
 `;
 
-// 여기
-export const ImagesWrapper = styled.div`
+// 지도
+export const MapWrapper = styled.div``;
+
+export const MapDetailWrapperHead = styled.div`
   display: flex;
-  justify-content: flex-start;
+`;
+
+export const AddressNumber = styled.input`
+  width: 20%;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  padding-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    height: 30px;
+    margin-bottom: none;
+  }
+`;
+
+export const AddressSearch = styled.div`
+  display: flex;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-`;
-
-export const UploadImage = styled.div`
-  position: relative;
-`;
-export const UploadImageDelete = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2rem;
-  height: 2rem;
-  padding: 5px;
-  background-color: #ffffffbb;
-  border-radius: 50%;
+  width: 25%;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  font-size: 13px;
+  margin-bottom: 10px;
   cursor: pointer;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    height: 30px;
+    margin-bottom: none;
+    font-size: 12px;
+  }
+`;
 
+export const MapDetailWrapperBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+// 버튼
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @media ${breakPoints.tablet} {
+  }
+  @media ${breakPoints.mobile} {
+    margin-top: 15px;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  width: 150px;
+  height: 40px;
+  margin: 30px 15px 0px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50px;
+  background-color: white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  outline: none;
+  cursor: pointer;
   :hover {
-    background-color: #ffcf07bb;
+    background-color: #ff9f9e;
+    /* background-color: #ff9f9e; */
+    color: #ffffff;
+    transition: all 0.5s;
+  }
+  @media ${breakPoints.tablet} {
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 110px;
+    height: 30px;
+    font-size: 10px;
+    margin: 10px;
   }
 `;

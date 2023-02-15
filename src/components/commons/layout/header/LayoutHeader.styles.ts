@@ -69,7 +69,7 @@ export const Menu1 = styled.div`
   color: #828282;
   cursor: pointer;
   :hover {
-    border-bottom: #ffc6ce 3px solid;
+    border-bottom: #ff9f9e 3px solid;
   }
 `;
 
@@ -100,7 +100,6 @@ export const Icon = styled.img`
 export const Count = styled.span`
   margin-right: 10px;
   padding: 4px 0.5rem;
-  background: #ffc6ce;
   border-radius: 5px;
   cursor: pointer;
 `;
@@ -112,7 +111,7 @@ export const Button = styled.button`
   cursor: pointer;
   font-weight: bold;
   :hover {
-    color: #ff007f;
+    color: #ff5554;
   }
 `;
 
