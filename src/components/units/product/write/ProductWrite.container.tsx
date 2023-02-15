@@ -107,16 +107,21 @@ export default function ProductWrite(props: IProductWriteProps) {
     setFileUrls([...newFileUrls]);
   };
 
-  useEffect(() => {
-    if (props.data?.images?.length) {
-      setFileUrls([...props.data?.images]);
-    }
-  }, [props.data]);
+  // useEffect(() => {
+  //   if (props.data?.images?.length) {
+  //     setFileUrls([...props.data?.images]);
+  //   }
+  // }, [props.data]);
 
   // 이미지 삭제
-  const onClickDeleteImage = (arg: number) => () => {
-    setFileUrls(fileUrls.filter((_, index) => index !== arg));
+  const onClickDeleteImage = (index: number) => () => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls.splice(index, 1);
+    setFileUrls(newFileUrls);
   };
+  // const onClickDeleteImage = (arg: number) => () => {
+  //   setFileUrls(fileUrls.filter((_, index) => index !== arg));
+  // };
 
   // 상품 등록버튼
   const onClickSubmit = async (data) => {
@@ -182,6 +187,34 @@ export default function ProductWrite(props: IProductWriteProps) {
         Modal.error({ content: "수정되지 않았습니다." });
     }
   };
+
+  // const onClcikEditProduct = async (data: any) => {
+  //   const currentFiles = JSON.stringify(fileUrls);
+  //   const defaultFiles = JSON.stringify(props.data?.fetchUseditem?.images);
+  //   const isChangedFiles = currentFiles !== defaultFiles;
+
+  //   const editHashArr = [...props.data?.fetchUseditem.tags, ...hashArr];
+  //   const updateUseditemInput = {};
+  //   if (isChangedFiles) updateUseditemInput.images = fileUrls;
+
+  //   try {
+  //     const editResult = await updateUseditem({
+  //       variables: {
+  //         updateUseditemInput: {
+  //           ...data,
+  //           images: fileUrls,
+  //           tags: editHashArr,
+  //         },
+  //         useditemId: String(router.query.productsId),
+  //       },
+  //     });
+  //     Modal.success({ content: "상품이 수정이 완료되었습니다." });
+  //     router.push(`/products/${editResult.data?.updateUseditem._id}`);
+  //   } catch (error) {
+  //     if (error instanceof Error)
+  //       Modal.error({ content: "수정되지 않았습니다." });
+  //   }
+  // };
 
   // 취소하기
   const onClickCancel = () => {

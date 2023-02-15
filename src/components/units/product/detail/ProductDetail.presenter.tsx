@@ -49,23 +49,11 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         </S.Price>
 
         {/* 이미지 슬라이더 */}
-        {props.data?.fetchUseditem?.images[0] ? (
+        {props.data?.fetchUseditem?.images ? (
           <S.SliderWrapper>
             <S.SliderImg
               src={`https://storage.googleapis.com/${
                 props.data?.fetchUseditem.images.filter((el) => el !== "")[0]
-              }`}
-            />
-
-            <S.SliderImg
-              src={`https://storage.googleapis.com/${
-                props.data?.fetchUseditem.images.filter((el) => el !== "")[1]
-              }`}
-            />
-
-            <S.SliderImg
-              src={`https://storage.googleapis.com/${
-                props.data?.fetchUseditem.images.filter((el) => el !== "")[2]
               }`}
             />
           </S.SliderWrapper>
