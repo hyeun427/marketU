@@ -101,7 +101,13 @@ const SideMenu: React.FC = () => {
         <img src="/img/icon/hamburger.png" style={{ width: "32px" }} />
       </Button>
 
-      <Drawer title="마켓U" placement="right" onClose={onClose} open={open}>
+      <Drawer
+        title="환영합니다✨"
+        placement="right"
+        onClose={onClose}
+        open={open}
+        width={320}
+      >
         {accessToken ? (
           <>
             <Menu3>

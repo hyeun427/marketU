@@ -5,7 +5,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 80px;
+  height: 70px;
   padding-left: 20px;
   border-bottom: 1px solid #c4c4c4;
   @media ${breakPoints.tablet} {
@@ -38,10 +38,7 @@ export const MediaSide = styled.div`
 export const Menu = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 26px;
-  @media ${breakPoints.tablet} {
-    font-size: 15px;
-  }
+  font-size: 23px;
 `;
 
 export const Logo = styled.div`
@@ -53,7 +50,7 @@ export const Logo = styled.div`
 
 export const LogoTitle = styled.div`
   margin: auto;
-  font-weight: bold;
+  font-family: "MyHeader";
 `;
 
 export const LogoImg = styled.img`
@@ -65,9 +62,9 @@ export const Menu1 = styled.div`
   margin: auto;
   text-align: center;
   margin-right: 30px;
-  font-weight: bold;
   color: #828282;
   cursor: pointer;
+  font-family: "MyHeader";
   :hover {
     border-bottom: #ff9f9e 3px solid;
   }
@@ -77,15 +74,8 @@ export const Detail = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  @media ${breakPoints.tablet} {
-    font-size: 12px;
-  }
-
-  @media ${breakPoints.mobile} {
-    font-size: 6px;
-  }
 `;
 
 export const User = styled.div`
@@ -105,6 +95,7 @@ export const Count = styled.span`
 `;
 
 export const Button = styled.button`
+  font-size: 15px;
   padding-right: 10px;
   background-color: #ffffff;
   border: none;

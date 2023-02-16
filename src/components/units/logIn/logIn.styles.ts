@@ -40,15 +40,33 @@ export const Error = styled.div`
   color: red;
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Button = styled.button`
-  margin: 5px 0px;
   width: 100%;
-  height: 64px;
-  border-radius: 16px;
-  border: none;
-  font-size: medium;
+  height: 45px;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 15px;
+  margin: 5px 0px;
+  cursor: pointer;
   :hover {
-    cursor: pointer;
-    background-color: #ffc6ce;
+    background-color: #ff9f9e;
+    border: none;
+    transition: ease all 0.5s;
+    color: #fff;
   }
+`;
+
+export const SignText = styled.div`
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 13px;
+  color: #bdbdbd;
 `;

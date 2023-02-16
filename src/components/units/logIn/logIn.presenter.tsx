@@ -21,8 +21,11 @@ export default function LogInUI(props: ILoginUIProps) {
           <S.Error>{props.passwordError}</S.Error>
         </S.InputWrapper>
 
-        <S.Button onClick={props.onClickLogin}>로그인하기</S.Button>
-        <S.Button onClick={props.onClickSigin}>회원가입</S.Button>
+        <S.ButtonWrapper>
+          <S.Button onClick={props.onClickLogin}>로그인하기</S.Button>
+          <S.SignText>아직 회원이 아니신가요?</S.SignText>
+          <S.Button onClick={props.onClickSigin}>회원가입</S.Button>
+        </S.ButtonWrapper>
       </S.Wrapper>
     </S.OutWrapper>
   );

@@ -4,19 +4,17 @@ import { breakPoints } from "../../../../commons/styles/media";
 // 브라우저 전체
 export const Wrapper = styled.div`
   width: 100%;
-  margin: 20px auto;
 `;
 
 // 리스트 전체
 export const ProductListWrapper = styled.div`
-  width: 90%;
+  width: 70%;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 `;
 
-// 리스트 메뉴
+// 리스트 헤더 부분
 export const ListMenuWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -34,33 +32,37 @@ export const MoveToNewItem = styled.button`
   font-weight: bold;
   border: 1px solid #bdbdbd;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   :hover {
     background-color: #ffc6ce;
     border: 1px solid #ffc6ce;
     transition: all ease 0.5s;
   }
+  @media ${breakPoints.tablet} {
+    width: 75px;
+    font-size: 14px;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 65px;
+    font-size: 13px;
+  }
 `;
 
-// 리스트 메뉴 검색
-export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
+// 검색바 관련
 export const SearchBox = styled.div`
   background-color: #f2f2f2;
   display: flex;
   align-items: center;
-  height: 30px;
   width: 400px;
+  height: 40px;
   border-radius: 10px;
   @media ${breakPoints.tablet} {
-    width: 350px;
+    width: 285px;
   }
   @media ${breakPoints.mobile} {
-    width: 250px;
+    width: 220px;
   }
 `;
 
@@ -74,126 +76,105 @@ export const SearchInput = styled.input`
   background-color: #f2f2f2;
   border: 0px;
   width: 370px;
-  height: 30px;
+  height: 35px;
+  font-size: 15px;
   :focus {
     outline: none;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 13px;
   }
 `;
 
 // 상품 리스트
-
 export const ItemListWrapper = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
-export const ItemListRow = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #bdbdbd;
-  padding-top: 10px;
-  padding-bottom: 10px;
+export const ItemWrapper = styled.div`
+  width: 22%;
+  height: 270px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  @media ${breakPoints.tablet} {
+    width: 30%;
+    height: 260px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 45%;
+    height: 250px;
+  }
 `;
 
-export const ItemInfo = styled.div`
-  display: flex;
+// 이미지
+export const ImgWrapper = styled.div`
+  width: 100%;
+  height: 170px;
 `;
 
 export const ItemPicture = styled.img`
-  width: 160px;
-  height: 160px;
-  margin-right: 10px;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  /* object-fit: contain; */
 `;
 
-// 아이템 디테일
-export const ItemListDetail = styled.div`
+// 디테일
+export const ItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
+  height: 100px;
+  @media ${breakPoints.tablet} {
+    height: 90px;
+  }
+  @media ${breakPoints.mobile} {
+    height: 80px;
+  }
 `;
 
-export const ItemListDetailName = styled.div`
-  font-size: 24px;
-  font-weight: 500;
+export const ItemDetailName = styled.div`
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  @media ${breakPoints.tablet} {
-    font-size: 20px;
-  }
-
-  @media ${breakPoints.mobile} {
-    font-size: 15px;
-  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 0px;
+  border-bottom: 1px solid #c4c4c4;
 `;
 
-export const ItemListDetailRemarks = styled.div`
-  font-size: 16px;
-  font-weight: 500;
-  @media ${breakPoints.tablet} {
-    font-size: 13px;
-  }
-
-  @media ${breakPoints.mobile} {
-    font-size: 10px;
-  }
+export const ItemDetailRemarks = styled.div`
+  padding: 5px 0px;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
-export const ItemListDetailTags = styled.div`
-  font-size: 16px;
-  font-weight: 500;
-  color: #bdbdbd;
-  @media ${breakPoints.tablet} {
-    font-size: 13px;
-  }
-  @media ${breakPoints.mobile} {
-    font-size: 10px;
-  }
-`;
+// export const ItemDetailPickedIcon = styled.img`
+//   width: 20px;
+//   height: 20px;
+//   margin-right: 10px;
+// `;
 
-// 이름, 픽, 아이콘
-export const ItemListDetailBottom = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const ItemListDetailSellerIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-`;
-
-export const ItemListDetailSeller = styled.div`
-  margin-right: 30px;
-`;
-
-export const ItemListDetailPickedIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-`;
-
-export const ItemListDetailPickedCount = styled.div``;
-
-export const WonIcon = styled.img`
-  width: 45px;
-  height: 45px;
-  margin-right: 5px;
-  margin-bottom: 2px;
-`;
-
-export const ItemListPrice = styled.div`
+export const ItemPrice = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: "NanumBarunGothicBold";
-  font-size: 24px;
-  font-weight: 700;
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
   @media ${breakPoints.tablet} {
-    font-size: 20px;
+    font-size: 15px;
   }
   @media ${breakPoints.mobile} {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;

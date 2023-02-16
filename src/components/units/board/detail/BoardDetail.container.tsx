@@ -82,6 +82,7 @@ export default function BoardDetail() {
 
   // 로그인 정보 불러오기 쿼리
   const { data: data2 } = useQuery(FETCH_USER_LOGGED_IN);
+  console.log(data, "데이타!");
 
   return (
     <BoardDetailUI
