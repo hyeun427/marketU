@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Menu = styled.div`
   display: flex;
@@ -13,9 +14,12 @@ export const Logo = styled.div`
 `;
 
 export const LogoTitle = styled.div`
-  margin: auto;
-  font-weight: bold;
-  font-size: 20px;
+  margin: 0px auto;
+  font-size: 25px;
+  font-family: "MyHeader";
+  @media ${breakPoints.mobile} {
+    font-size: 20px;
+  }
 `;
 
 export const LogoImg = styled.img`
@@ -26,12 +30,12 @@ export const LogoImg = styled.img`
 export const Menu1 = styled.div`
   margin-bottom: 10px;
   font-size: 20px;
-  font-weight: bold;
   color: #828282;
   cursor: pointer;
   :hover {
     border-bottom: #ffc6ce 3px solid;
   }
+  font-family: "MyHeader";
 `;
 export const Menu2 = styled.div`
   display: flex;
@@ -55,19 +59,21 @@ export const Detail = styled.div`
 `;
 
 export const Button1 = styled.button`
+  padding-top: 6px;
   padding-right: 10px;
   background-color: #ffffff;
   border: none;
   cursor: pointer;
+  font-size: 15px;
   font-weight: bold;
   :hover {
     color: #ff5554;
   }
-  font-size: 15px;
 `;
 
 export const User = styled.div`
   margin-right: 10px;
+  font-weight: 700;
 `;
 
 export const Icon = styled.img`
@@ -81,4 +87,5 @@ export const Count = styled.span`
   background: #ffc6ce;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 700;
 `;

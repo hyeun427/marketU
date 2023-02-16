@@ -10,7 +10,6 @@ import { FETCH_USER_LOGGED_IN } from "../detail/BoardDetail.queries";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
-  // const [writer, setWriter] = useState("");
 
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
@@ -21,7 +20,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [addressDetail, setAddressDetail] = useState("");
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
-  // const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [contentsError, setContentsError] = useState("");
@@ -37,7 +35,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const writer = loginUser?.fetchUserLoggedIn.name;
 
   // 비밀번호 작성할 때
-
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     if (event.target.value !== "") {
@@ -115,7 +112,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   // 등록하기 버튼 누르기전에 모두 입력했는지 확인, 다 적혔으면 백엔드서버에 저장
   const onClickSubmit = async () => {
-    console.log(writer, "??");
     if (password === "") {
       setPasswordError("비밀번호를 입력하세요.");
     }
@@ -135,17 +131,17 @@ export default function BoardWrite(props: IBoardWriteProps) {
               password,
               title,
               contents,
+              images: fileUrls,
               youtubeUrl,
               boardAddress: {
                 zipcode,
                 address,
                 addressDetail,
               },
-              images: fileUrls,
             },
           },
         });
-        console.log(result);
+        console.log(result, "등록값확인");
         Modal.success({
           content: "게시물 등록에 성공하였습니다!상세 페이지로 이동합니다.",
         });
@@ -212,6 +208,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
     if (props.data?.fetchBoard.images?.length) {
       setFileUrls([...props.data?.fetchBoard.images]);
     }
+    setZipcode(props.data?.fetchBoard?.boardAddress.zipcode);
+    setAddress(props.data?.fetchBoard?.boardAddress.address);
   }, [props.data]);
 
   const onClickCancel = () => {

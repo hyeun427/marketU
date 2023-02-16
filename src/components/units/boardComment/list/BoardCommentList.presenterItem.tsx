@@ -81,7 +81,6 @@ export default function BoardCommentListUIItem(
             <S.OptionWrapper>
               <S.UpdateIcon
                 src="/img/icon/editpencil.png"
-                width={"20"}
                 onClick={onClickUpdate}
               />
               <S.DeleteIcon

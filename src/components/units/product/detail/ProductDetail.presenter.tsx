@@ -1,6 +1,5 @@
 import * as S from "./ProductDetail.style";
 import { getDate } from "../../../../commons/libraries/utils";
-import { Tooltip } from "antd";
 import { IProductDetaulUIProps } from "./ProductDetail.types";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
@@ -19,25 +18,18 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
               <S.Date>{getDate(props.data?.fetchUseditem?.createdAt)}</S.Date>
             </S.ProfileDetail>
           </S.Profile>
-
-          <S.IconWrapper>
-            <S.Share src="/img/icon/share.png" />
-            <Tooltip placement="topRight" title={"주소가 없습니다."}>
-              <S.Spot src="/img/icon/spot.png" />
-            </Tooltip>
-          </S.IconWrapper>
+          <S.PickWrapper>
+            <S.PickIcon src="/img/icon/pick.png" onClick={props.onClickPick} />
+            <S.Pick>{props.data?.fetchUseditem.pickedCount}</S.Pick>
+          </S.PickWrapper>
         </S.ProfileWrapper>
       </S.Header>
 
       {/*상품 디테일 부분 */}
       <S.Body>
-        {/* 상품명, 찜하기 */}
+        {/* 상품명 */}
         <S.Title>
           <S.ProductName>{props.data?.fetchUseditem.name}</S.ProductName>
-          <S.PickWrapper>
-            <S.PickIcon src="/img/icon/pick.png" onClick={props.onClickPick} />
-            <S.Pick>{props.data?.fetchUseditem.pickedCount}</S.Pick>
-          </S.PickWrapper>
         </S.Title>
 
         {/* 상품 가격 */}
@@ -48,19 +40,19 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
           원
         </S.Price>
 
-        {/* 이미지 슬라이더 */}
+        {/* 이미지  */}
         {props.data?.fetchUseditem?.images[0] !== "" ? (
-          <S.SliderWrapper>
-            <S.SliderImg
+          <S.ImgWrapper>
+            <S.Img
               src={`https://storage.googleapis.com/${
                 props.data?.fetchUseditem.images.filter((el) => el !== "")[0]
               }`}
             />
-          </S.SliderWrapper>
+          </S.ImgWrapper>
         ) : (
-          <S.SliderWrapper>
-            <S.SliderImg src="/img/icon/noImage.png" />
-          </S.SliderWrapper>
+          <S.ImgWrapper>
+            <S.Img src="/img/icon/noImage.png" />
+          </S.ImgWrapper>
         )}
 
         {/* 에디터 상품 내용 */}
@@ -84,14 +76,17 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         </S.TagWrapper>
 
         {/* 지도 */}
-        <KakaoMap02
-          tradeLat={props.data?.fetchUseditem.useditemAddress?.lat}
-          tradeLng={props.data?.fetchUseditem.useditemAddress?.lng}
-          tradeAddress={props.data?.fetchUseditem.useditemAddress?.address}
-          tradeAddressDetail={
-            props.data?.fetchUseditem.useditemAddress?.addressDetail
-          }
-        />
+        <S.Map>
+          <div>직거래 장소📌</div>
+          <KakaoMap02
+            tradeLat={props.data?.fetchUseditem.useditemAddress?.lat}
+            tradeLng={props.data?.fetchUseditem.useditemAddress?.lng}
+            tradeAddress={props.data?.fetchUseditem.useditemAddress?.address}
+            tradeAddressDetail={
+              props.data?.fetchUseditem.useditemAddress?.addressDetail
+            }
+          />
+        </S.Map>
       </S.Body>
 
       {/* 버튼*/}

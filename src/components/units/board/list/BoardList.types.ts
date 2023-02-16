@@ -1,5 +1,5 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
-import { MouseEvent } from "react";
+import { ChangeEvent } from "react";
 import {
   IQuery,
   IQueryFetchBoardsCountArgs,
@@ -20,8 +20,4 @@ export interface IBoardListUIProps {
   keyword: string;
   onChangeKeyword: (value: string) => void;
   onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface ITextTokenProps {
-  isMatched: boolean;
 }

@@ -20,29 +20,36 @@ export default function BoardListUI(props: IBoardListUIProps) {
     // 리스트 전체영역
     <Ls.Wrapper>
       {/* 검색창 */}
-      <Ls.SearchBox>
-        <Ls.SearchImg src="/img/icon/search.png" width={20} />
-        <Ls.SearchInput
-          type="text"
-          placeholder="제목을 검색해주세요!"
-          onChange={props.onChangeSearch}
-        />
-      </Ls.SearchBox>
+      <Ls.MenuWrapper>
+        <Ls.SearchBox>
+          <Ls.SearchImg src="/img/icon/search.png" width={20} />
+          <Ls.SearchInput
+            type="text"
+            placeholder="제목을 검색해주세요!"
+            onChange={props.onChangeSearch}
+          />
+        </Ls.SearchBox>
+        {/* 새글버튼 */}
+        <Ls.Button onClick={props.onClickMoveToBoardNew}>
+          <img src="/img/icon/pencil.png" width={"20"} />
+          글쓰기
+        </Ls.Button>
+      </Ls.MenuWrapper>
       <Ls.TableTop />
       {/* 리스트 헤더영역 */}
-      <Ls.Row>
-        <Ls.ColumnHeaderBasic>번호</Ls.ColumnHeaderBasic>
-        <Ls.ColumnHeaderTitle>제목</Ls.ColumnHeaderTitle>
-        <Ls.ColumnHeaderBasic>작성자</Ls.ColumnHeaderBasic>
-        <Ls.ColumnHeaderBasic>날짜</Ls.ColumnHeaderBasic>
-      </Ls.Row>
+      <Ls.TitleRow>
+        <Ls.ColumnBasic1>번호</Ls.ColumnBasic1>
+        <Ls.RowTitle>제목</Ls.RowTitle>
+        <Ls.ColumnBasic2>작성자</Ls.ColumnBasic2>
+        <Ls.ColumnBasic3>날짜</Ls.ColumnBasic3>
+      </Ls.TitleRow>
       {/* 리스트 영역 */}
       {/* 리스트 불러오기를 10번 반복하는 코드*/}
       {props.data?.fetchBoards.map((el, index: number) => (
         <Ls.Row key={el._id}>
-          <Ls.ColumnBasic>
+          <Ls.ColumnBasic1>
             {<span>{(currentPage - 1) * 10 + index + 1}</span>}
-          </Ls.ColumnBasic>
+          </Ls.ColumnBasic1>
           <Ls.ColumnTitle
             id={el._id}
             onClick={props.onClickMoveToBoardDetail(el._id)}
@@ -51,13 +58,11 @@ export default function BoardListUI(props: IBoardListUIProps) {
               .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
               .split("@#$%")
               .map((el) => (
-                <Ls.TextToken key={uuidv4()} isMatched={props.keyword === el}>
-                  {el}
-                </Ls.TextToken>
+                <Ls.TextToken key={uuidv4()}>{el}</Ls.TextToken>
               ))}
           </Ls.ColumnTitle>
-          <Ls.ColumnBasic>{el.writer}</Ls.ColumnBasic>
-          <Ls.ColumnBasic>{getDate(el.createdAt)}</Ls.ColumnBasic>
+          <Ls.ColumnBasic2>{el.writer}</Ls.ColumnBasic2>
+          <Ls.ColumnBasic3>{getDate(el.createdAt)}</Ls.ColumnBasic3>
         </Ls.Row>
       ))}
       <Ls.TableBottom />
@@ -71,10 +76,6 @@ export default function BoardListUI(props: IBoardListUIProps) {
           setCurrentPage={setCurrentPage}
           refetch={props.refetch}
         />
-        <Ls.Button onClick={props.onClickMoveToBoardNew}>
-          <img src="/img/icon/pencil.png" width={"20"} />
-          게시물 등록하기
-        </Ls.Button>
       </Ls.Footer>
     </Ls.Wrapper>
   );

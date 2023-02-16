@@ -98,6 +98,21 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <S.Label>사진첨부</S.Label>
 
           {props.fileUrls.map((el: any, index: number) => {
+            if (index !== 0 && props.fileUrls[index - 1] !== "")
+              return (
+                <div>
+                  <Upload
+                    type="button"
+                    key={uuidv4()}
+                    index={index}
+                    fileUrl={el}
+                    onChangeFileUrls={props.onChangeFileUrls}
+                  />
+                  <S.DeleteBtn
+                    onClick={props.onClickDeleteImage(index)}
+                  ></S.DeleteBtn>
+                </div>
+              );
             if (index === 0)
               return (
                 <div>
@@ -107,7 +122,6 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
                     index={index}
                     fileUrl={el}
                     onChangeFileUrls={props.onChangeFileUrls}
-                    defaultValue={`https://storage.googleapis.com/${el}` || ""}
                   />
                   <S.DeleteBtn
                     onClick={props.onClickDeleteImage(index)}

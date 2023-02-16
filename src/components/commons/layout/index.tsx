@@ -9,29 +9,15 @@ const Body = styled.div`
   align-items: center;
 `;
 
-const HIDDEN_LAYOUT = ["/"];
-
 interface ILayoutProps {
   children: ReactNode;
 }
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  const isHiddenLayout = HIDDEN_LAYOUT.includes(router.asPath);
 
   return (
     <>
-      {/* {!isHiddenLayout ? (
-        <>
-          <LayoutHeader />
-
-          <Body>{props.children}</Body>
-        </>
-      ) : (
-        <>
-          <Body>{props.children}</Body>
-        </>
-      )} */}
       <LayoutHeader />
 
       <Body>{props.children}</Body>
