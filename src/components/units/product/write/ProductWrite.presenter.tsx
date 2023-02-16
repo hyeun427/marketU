@@ -56,7 +56,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 type="text"
                 placeholder="상품에 대해 간단히 작성해주세요."
                 {...props.register("remarks")}
-                defaultValue={props.data1?.fetchUseditem.remarks || ""}
+                defaultValue={props.data?.fetchUseditem.remarks || ""}
               />
               <S.Error>{props.formState.errors.remarks?.message}</S.Error>
             </div>
@@ -67,7 +67,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 type="text"
                 placeholder="판매 가격을 입력해주세요."
                 {...props.register("price")}
-                defaultValue={Number(props.data1?.fetchUseditem.price || "")}
+                defaultValue={Number(props.data?.fetchUseditem.price || "")}
               />
               <S.Error>{props.formState.errors.price?.message}</S.Error>
             </div>
@@ -82,7 +82,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 style={{ height: 220 }}
                 id="contents"
                 placeholder="상품을 설명해주세요."
-                defaultValue={props.data1?.fetchUseditem.contents || ""}
+                defaultValue={props.data?.fetchUseditem.contents || ""}
               />
               <S.Error>{props.formState.errors.contents?.message}</S.Error>
             </S.ReactQuillWrapper>

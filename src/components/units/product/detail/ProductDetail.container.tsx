@@ -109,7 +109,7 @@ export default function ProductDetail() {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
-
+  console.log(data, "data!");
   return (
     <ProductDetailUI
       data={data}
