@@ -2,7 +2,7 @@ import ProductWriteUI from "./ProductWrite.presenter";
 import { useForm } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
-import { IProductWrite, IProductWriteProps } from "./ProductWrite.types";
+import { IProductWriteProps } from "./ProductWrite.types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useMutation, useQuery } from "@apollo/client";
@@ -51,7 +51,7 @@ export default function ProductWrite(props: IProductWriteProps) {
   const [fileUrls, setFileUrls] = useState<string[]>(["", ""]);
 
   // 작성된 컨텐츠 정보 불러오기
-  const { data: data1 } = useQuery(FETCH_USED_ITEM, {
+  const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router?.query.productsId },
   });
 
@@ -91,7 +91,6 @@ export default function ProductWrite(props: IProductWriteProps) {
     setIsOpen((prev) => !prev);
     setAddress(address.address);
     setZipcode(address.zonecode);
-    // console.log(address.zonecode, "우편번호1");
     setAddressDetail("");
   };
 
@@ -130,7 +129,7 @@ export default function ProductWrite(props: IProductWriteProps) {
               address: address,
               lat: Number(data.lat),
               lng: Number(data.lng),
-              addressDetail: data.addressDetail,
+              addressDetail: addressDetail,
             },
           },
         },
@@ -140,7 +139,6 @@ export default function ProductWrite(props: IProductWriteProps) {
     } catch (error) {
       Modal.error({ content: error.message });
     }
-    console.log(zipcode, "우편번호2");
   };
 
   // 상품 수정하기
@@ -177,7 +175,6 @@ export default function ProductWrite(props: IProductWriteProps) {
       if (error instanceof Error)
         Modal.error({ content: "수정되지 않았습니다." });
     }
-    console.log(zipcode, "우편번호3");
   };
 
   // 취소하기
@@ -187,8 +184,7 @@ export default function ProductWrite(props: IProductWriteProps) {
 
   return (
     <ProductWriteUI
-      data={props.data}
-      data1={data1}
+      data={data}
       // form
       register={register}
       handleSubmit={handleSubmit}

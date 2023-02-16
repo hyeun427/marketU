@@ -8,13 +8,12 @@ export const UploadImage = styled.img`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid #d9d9d9; */
 
   @media ${breakPoints.tablet} {
-    width: 90%;
   }
   @media ${breakPoints.mobile} {
-    width: 80%;
+    object-fit: contain;
+    height: 250px;
   }
 `;
 

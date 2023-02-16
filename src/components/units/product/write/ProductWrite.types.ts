@@ -5,12 +5,15 @@ import {
   UseFormGetValues,
   UseFormHandleSubmit,
   UseFormRegister,
+  UseFormReset,
   UseFormSetValue,
+  UseFormStateReturn,
   UseFormTrigger,
 } from "react-hook-form";
 import { IQuery } from "../../../../commons/types/generated/types";
 
-export interface IProductWrite {
+export interface FormValues {
+  // export interface IProductWrite {
   name?: string;
   remarks?: string;
   price?: string;
@@ -20,31 +23,25 @@ export interface IProductWrite {
   zipcode?: string;
   address?: string;
   addressDetail?: string;
-  lat?: number;
-  lng?: number;
+  // lat?: number;
+  // lng?: number;
 }
-// export interface IProductWrite {
-//   name?: string;
-//   remarks?: string;
-//   price?: string;
-//   contents?: string;
-//   tags?: string;
-// }
 
 export interface IProductWriteUIProps {
   ReactQuill: ComponentType<ReactQuill.ComponentProps>;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<FormValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
-  formState: FormState<FieldValues>;
-  setValue: UseFormSetValue<FieldValues>;
-  getValues: UseFormGetValues<FieldValues>;
-  trigger: UseFormTrigger<FieldValues>;
+  formState: UseFormStateReturn<FieldValues>;
+  setValue: any;
+  getValues: any;
+  trigger: any;
+  reset: UseFormReset<FormValues>;
   data?: Pick<IQuery, "fetchUseditem">;
   data1?: Pick<IQuery, "fetchUseditem">;
   isEdit: Boolean;
   fileUrls: string[];
-  onClickSubmit: (data: IProductWrite) => void;
-  onClickUpdate: (data: IProductWrite) => void;
+  onClickSubmit: (data: FormValues) => void;
+  onClickUpdate: (data: FormValues) => void;
   onChangeContents: (value: string) => void;
   onChangeFileUrls: (fileUrls: string, index: number) => void;
   onClickDeleteImage: (arg: any) => () => void;
@@ -52,7 +49,12 @@ export interface IProductWriteUIProps {
   onKeyUpHash: (event: any) => void;
   isOpen: Boolean;
   onClickCancel: () => void;
-  zipcode?: string;
+  zipcode?: any;
+  address?: any;
+  addressDetail: any;
+  onClickModal: () => void;
+  onClickPostCode: (data: any) => void;
+  onChangeAddressDetail: (event: any) => void;
 }
 
 export interface IProductWriteProps {

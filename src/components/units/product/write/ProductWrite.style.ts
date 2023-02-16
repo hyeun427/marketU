@@ -123,6 +123,16 @@ export const ReactQuillWrapper = styled.div`
   .ql-container {
     height: 180px;
   }
+  @media ${breakPoints.tablet} {
+    .ql-container {
+      height: 160px;
+    }
+  }
+  @media ${breakPoints.mobile} {
+    .ql-container {
+      height: 158px;
+    }
+  }
 `;
 
 // 태그
@@ -152,13 +162,15 @@ export const MapDetailWrapperHead = styled.div`
 `;
 
 export const AddressNumber = styled.input`
-  width: 20%;
+  width: 70px;
   height: 40px;
   border: 1px solid #bdbdbd;
   padding-left: 5px;
   margin-right: 10px;
   margin-bottom: 10px;
   @media ${breakPoints.tablet} {
+    width: 70px;
+    height: 35px;
   }
   @media ${breakPoints.mobile} {
     height: 30px;
@@ -170,13 +182,16 @@ export const AddressSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25%;
+  width: 86px;
   height: 40px;
   border: 1px solid #bdbdbd;
   font-size: 13px;
   margin-bottom: 10px;
   cursor: pointer;
   @media ${breakPoints.tablet} {
+    height: 35px;
+    font-size: 12px;
+    width: 86px;
   }
   @media ${breakPoints.mobile} {
     height: 30px;
