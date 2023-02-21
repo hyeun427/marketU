@@ -39,7 +39,7 @@ export default function ProductListUI(props: IProductListUI) {
               <S.ItemWrapper
                 key={uuidv4()}
                 id={el._id}
-                onClick={props.onClickMoveDetail(el)}
+                onClick={props.onClickMoveDetail(el._id)}
               >
                 <S.ImgWrapper>
                   {el.images[0] ? (

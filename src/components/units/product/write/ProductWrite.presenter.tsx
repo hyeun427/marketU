@@ -45,7 +45,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
               {...props.register("name")}
               defaultValue={props.data?.fetchUseditem.name || ""}
             />
-            <S.Error>{props.formState.errors.name?.message}</S.Error>
+            <S.Error>{String(props.formState.errors.name?.message)}</S.Error>
           </S.Inner>
 
           <S.InnerWrapeer>
@@ -58,7 +58,9 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 {...props.register("remarks")}
                 defaultValue={props.data?.fetchUseditem.remarks || ""}
               />
-              <S.Error>{props.formState.errors.remarks?.message}</S.Error>
+              <S.Error>
+                {String(props.formState.errors.remarks?.message)}
+              </S.Error>
             </div>
             {/* 가격 */}
             <div>
@@ -69,7 +71,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 {...props.register("price")}
                 defaultValue={Number(props.data?.fetchUseditem.price || "")}
               />
-              <S.Error>{props.formState.errors.price?.message}</S.Error>
+              <S.Error>{String(props.formState.errors.price?.message)}</S.Error>
             </div>
           </S.InnerWrapeer>
 
@@ -84,7 +86,9 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 placeholder="상품을 설명해주세요."
                 defaultValue={props.data?.fetchUseditem.contents || ""}
               />
-              <S.Error>{props.formState.errors.contents?.message}</S.Error>
+              <S.Error>
+                {String(props.formState.errors.contents?.message)}
+              </S.Error>
             </S.ReactQuillWrapper>
           </S.Inner>
 
@@ -111,7 +115,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                 </S.HashTagWrapper>
               ))}
             </div>
-            <S.Error>{props.formState.errors.tags?.message}</S.Error>
+            <S.Error>{String(props.formState.errors.tags?.message)}</S.Error>
           </div>
 
           {/* 지도 */}

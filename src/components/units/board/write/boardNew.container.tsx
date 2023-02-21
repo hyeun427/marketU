@@ -146,7 +146,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
         });
         router.push(`/boards/${result.data.createBoard._id}`);
       } catch (error) {
-        Modal.error({ content: error.message });
+        Modal.error({ content: "다시 시도해주세요😥" });
       }
     }
   };
@@ -199,7 +199,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       Modal.success({ content: "게시물 수정에 성공하였습니다!" });
       router.push(`/boards/${router.query.boardId}`);
     } catch (error) {
-      Modal.error({ content: error.message });
+      Modal.error({ content: "다시 시도해주세요😥" });
     }
   };
 

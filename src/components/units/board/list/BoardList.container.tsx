@@ -2,7 +2,7 @@ import BoardListUI from "./BoardList.presenter";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   IQuery,
   IQueryFetchBoardsArgs,

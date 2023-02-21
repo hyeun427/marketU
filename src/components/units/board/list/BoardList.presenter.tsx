@@ -1,7 +1,6 @@
 import * as Ls from "./BoardList.style";
 import { getDate } from "../../../../commons/libraries/utils";
 import { IBoardListUIProps } from "./BoardList.types";
-import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
 import { v4 as uuidv4 } from "uuid";
 import PagiNation01 from "../../../commons/paginations/01";
 import { useEffect, useState } from "react";
@@ -69,7 +68,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
       {/* 리스트 푸터영역 */}
       <Ls.Footer>
         <PagiNation01
-          totalDataCount={props.boardsCount}
+          totalDataCount={Number(props.boardsCount)}
           pageRangeToShow={5}
           dataCountPerPage={10}
           currentPage={currentPage}

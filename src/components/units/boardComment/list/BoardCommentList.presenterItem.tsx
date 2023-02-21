@@ -47,7 +47,7 @@ export default function BoardCommentListUIItem(
         ],
       });
     } catch (error) {
-      Modal.error({ content: error.message });
+      Modal.error({ content: "다시 시도해주세요😥" });
     }
   };
 

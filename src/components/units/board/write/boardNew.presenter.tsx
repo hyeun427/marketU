@@ -20,7 +20,6 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <S.InputWrapper>
             <S.Label>작성자</S.Label>
             <S.Writer>{props.loginUser?.fetchUserLoggedIn.name}</S.Writer>
-            <S.Error>{props.writerError}</S.Error>
           </S.InputWrapper>
           <S.InputWrapper>
             <S.Label>비밀번호</S.Label>

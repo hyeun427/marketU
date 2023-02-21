@@ -33,8 +33,8 @@ export default function ProductList() {
   };
 
   // 제품 사진 눌렀을 때 디테일 페이지 이동
-  const onClickMoveDetail = () => (event: MouseEvent<HTMLDivElement>) => {
-    router.push(`/products/${event.currentTarget.id}`);
+  const onClickMoveDetail = (id: string) => () => {
+    router.push(`/products/${id}`);
   };
 
   // 무한 스크롤
@@ -61,7 +61,6 @@ export default function ProductList() {
   return (
     <ProductListUI
       data={data}
-      fetchMore={fetchMore}
       onLoadMore={onLoadMore}
       onClickNewItem={onClickNewItem}
       onClickMoveDetail={onClickMoveDetail}

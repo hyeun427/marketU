@@ -11,8 +11,8 @@ export interface ILayoutHeaderProps {
   userInfo: {
     email: string;
     name: string;
-    userPoint: number;
-    pickedCount: number;
+    // userPoint: number;
+    // pickedCount: number;
   };
   accessToken: string;
   dataItemsCountIPicked?: Pick<IQuery, "fetchUseditemsCountIPicked">;

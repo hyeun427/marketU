@@ -116,7 +116,7 @@ export default function SignInPage() {
           content: "회원 가입이 성공하였습니다.",
         });
       } catch (error) {
-        Modal.error({ content: error.message });
+        Modal.error({ content: "다시 시도해주세요😥" });
       }
     }
   };

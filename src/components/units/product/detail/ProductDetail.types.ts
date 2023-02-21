@@ -1,11 +1,12 @@
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IProductDetaulUIProps {
-  data?: Pick<IQuery, "fetchUseditem">;
+  data?: any;
+  data2: any;
   onClickMoveToList: () => void;
   onClickMoveToEdit: () => void;
-  onClickPick: () => Promise<void>;
-  onClickBuy: () => Promise<void>;
+  onClickPick: () => void;
+  onClickBuy: () => void;
   onClickCancel: () => void;
   onClickDelete: () => Promise<void>;
 }

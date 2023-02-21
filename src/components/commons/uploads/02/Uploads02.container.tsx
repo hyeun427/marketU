@@ -4,7 +4,7 @@ import { UPLOAD_FILE } from "./Uploads02.queries";
 import { CheckFileValidation } from "./Uploads02.validation";
 import UploadUI from "./Uploads02.presenter";
 
-export default function Upload(props) {
+export default function Upload(props: any) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 

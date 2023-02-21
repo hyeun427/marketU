@@ -52,8 +52,8 @@ export default function ProductDetail() {
         ],
       });
     } catch (error) {
-      // setAccessToken;
-      if (error instanceof Error) Modal.error({ content: error.message });
+      if (error instanceof Error)
+        Modal.error({ content: "다시 시도해주세요😥" });
     }
   };
 
@@ -74,7 +74,7 @@ export default function ProductDetail() {
         router.push("/products");
         alert("상품이 구매되었습니다.");
       } catch (error) {
-        alert(error.message);
+        alert("다시 시도해주세요😥");
       }
     } else {
       alert("포인트를 충전해 주세요");
@@ -106,7 +106,8 @@ export default function ProductDetail() {
       Modal.success({ content: "삭제가 완료되었습니다." });
       router.push("/products");
     } catch (error) {
-      if (error instanceof Error) Modal.error({ content: error.message });
+      if (error instanceof Error)
+        Modal.error({ content: "다시 시도해주세요😥" });
     }
   };
   return (

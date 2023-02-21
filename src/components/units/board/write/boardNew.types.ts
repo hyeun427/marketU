@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteProps {
-  isEdit: Boolean;
+  isEdit: boolean;
   data?: any;
 }
 
@@ -20,11 +20,9 @@ export interface IUpdateBoardInput {
 
 export interface IBoardWriteUIProps {
   isActive: boolean;
-  writerError: string;
   passwordError: string;
   titleError: string;
   contentsError: string;
-  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;

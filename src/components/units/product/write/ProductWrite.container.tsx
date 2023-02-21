@@ -68,7 +68,7 @@ export default function ProductWrite(props: IProductWriteProps) {
   };
 
   // 태그
-  const onKeyUpHash = (event) => {
+  const onKeyUpHash = (event: any) => {
     if (event.keyCode === 32 && event.target.value !== " ") {
       setHashArr([...hashArr, "#" + event.target.value]);
       event.target.value = "";
@@ -137,12 +137,12 @@ export default function ProductWrite(props: IProductWriteProps) {
       Modal.success({ content: "상품 등록에 성공하였습니다!" });
       router.push(`/products/${result.data.createUseditem._id}`);
     } catch (error) {
-      Modal.error({ content: error.message });
+      Modal.error({ content: "다시 시도해주세요😥" });
     }
   };
 
   // 상품 수정하기
-  const onClickUpdate = async (data) => {
+  const onClickUpdate = async (data: any) => {
     const currentFiles = JSON.stringify(fileUrls);
     const defaultFiles = JSON.stringify(props.data?.fetchUseditem.images);
     const isChangeFiles = currentFiles !== defaultFiles;

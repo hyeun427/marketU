@@ -45,7 +45,9 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
           <S.ImgWrapper>
             <S.Img
               src={`https://storage.googleapis.com/${
-                props.data?.fetchUseditem.images.filter((el) => el !== "")[0]
+                props.data?.fetchUseditem.images.filter(
+                  (el: any) => el !== ""
+                )[0]
               }`}
             />
           </S.ImgWrapper>
@@ -69,7 +71,7 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         {/* 태그 */}
         <S.TagWrapper>
           {props.data?.fetchUseditem.tags
-            ? props.data?.fetchUseditem.tags.map((el) => (
+            ? props.data?.fetchUseditem.tags.map((el: any) => (
                 <S.Tag key={uuidv4()}>{el}</S.Tag>
               ))
             : ""}

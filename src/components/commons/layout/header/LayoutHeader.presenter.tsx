@@ -11,7 +11,6 @@ import {
   Button,
   Count,
   Icon,
-  DetailIcon,
   MediaSide,
 } from "./LayoutHeader.styles";
 import { ILayoutHeaderProps } from "./LayoutHeader.types";

@@ -1,19 +1,15 @@
 import { ComponentType } from "react";
 import {
   FieldValues,
-  FormState,
-  UseFormGetValues,
   UseFormHandleSubmit,
   UseFormRegister,
   UseFormReset,
-  UseFormSetValue,
   UseFormStateReturn,
-  UseFormTrigger,
 } from "react-hook-form";
+import ReactQuill from "react-quill";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface FormValues {
-  // export interface IProductWrite {
   name?: string;
   remarks?: string;
   price?: string;
@@ -23,8 +19,6 @@ export interface FormValues {
   zipcode?: string;
   address?: string;
   addressDetail?: string;
-  // lat?: number;
-  // lng?: number;
 }
 
 export interface IProductWriteUIProps {

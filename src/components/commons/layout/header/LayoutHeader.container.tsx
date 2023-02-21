@@ -14,6 +14,7 @@ export default function LayoutHeader() {
   const router = useRouter();
   const [logoutUser] = useMutation(LOGOUT_USER);
   const accessToken = useRecoilValue(accessTokenState);
+  // const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const { data: dataItemsCountIPicked } = useQuery<
     Pick<IQuery, "fetchUseditemsCountIPicked">
@@ -44,8 +45,9 @@ export default function LayoutHeader() {
         email: "",
         name: "",
       });
+      // setAccessToken("");
       alert("로그아웃 하였습니다.");
-      location.reload();
+      router.push("/");
     } catch (error) {
       if (error instanceof Error) alert(error.message);
     }

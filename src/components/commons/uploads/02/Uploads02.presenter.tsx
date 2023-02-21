@@ -1,6 +1,6 @@
 import * as S from "./Uploads02.styles";
 
-export default function UploadUI(props) {
+export default function UploadUI(props: any) {
   return (
     <>
       {props.fileUrl ? (

@@ -1,10 +1,10 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IProductListUI {
   data?: Pick<IQuery, "fetchUseditems">;
   onLoadMore: () => void;
   onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickMoveDetail: () => (event: MouseEvent<HTMLDivElement>) => void;
+  onClickMoveDetail: (id: string) => () => void;
   onClickNewItem: () => void;
 }
