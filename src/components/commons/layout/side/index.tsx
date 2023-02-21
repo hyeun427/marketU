@@ -23,6 +23,7 @@ import {
   Button1,
   Count,
   Icon,
+  Image,
 } from "./styles";
 
 const SideMenu: React.FC = () => {
@@ -98,7 +99,7 @@ const SideMenu: React.FC = () => {
         onClick={showDrawer}
         style={{ backgroundColor: "white", boxShadow: "none" }}
       >
-        <img src="/img/icon/hamburger.png" style={{ width: "32px" }} />
+        <Image src="/img/icon/hamburger.png" alt="" />
       </Button>
 
       <Drawer

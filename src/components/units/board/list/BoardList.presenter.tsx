@@ -31,7 +31,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
         </Ls.SearchBox>
         {/* 새글버튼 */}
         <Ls.Button onClick={props.onClickMoveToBoardNew}>
-          <img src="/img/icon/pencil.png" width={"20"} />
+          <Ls.Image src="/img/icon/pencil.png" />
           글쓰기
         </Ls.Button>
       </Ls.MenuWrapper>

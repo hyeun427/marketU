@@ -120,6 +120,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
             <S.Inner>
               <S.MapDetailWrapperHead>
                 <S.AddressNumber
+                  id="zipcode"
                   value={
                     props.zipcode
                       ? props.zipcode
@@ -144,6 +145,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
               </S.MapDetailWrapperHead>
               <S.MapDetailWrapperBottom>
                 <S.Input
+                  id="address"
                   readOnly={true}
                   value={
                     props.address ||
@@ -152,6 +154,7 @@ export default function ProductWriteUI(props: IProductWriteUIProps) {
                   }
                 />
                 <S.Input
+                  id="addressDetail"
                   placeholder="상세 주소를 입력하세요"
                   onChange={props.onChangeAddressDetail}
                   value={

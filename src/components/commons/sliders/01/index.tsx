@@ -40,6 +40,8 @@ const SliderItem = styled.div`
   }
 `;
 
+export const Image = styled.img``;
+
 export default function Slider01(props: { images: string[] }) {
   const settings = {
     dots: true,
@@ -54,7 +56,7 @@ export default function Slider01(props: { images: string[] }) {
       <Slider {...settings}>
         {props.images?.map((el: string) => (
           <SliderItem key={uuidv4()}>
-            <img src={`https://storage.googleapis.com/${el}`} />
+            <Image src={`https://storage.googleapis.com/${el}`} alt="" />
           </SliderItem>
         ))}
       </Slider>

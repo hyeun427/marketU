@@ -10,10 +10,12 @@ export const CloseButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-bottom: 0.5rem;
+`;
 
-  img {
-    cursor: pointer;
-  }
+export const Close = styled.img`
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
 `;
 
 export const InputWrapper = styled.div`
@@ -24,6 +26,9 @@ export const InputWrapper = styled.div`
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 1.25rem;
+    ::placeholder {
+      font-size: 15px;
+    }
   }
 `;
 

@@ -3,9 +3,7 @@ import { getDate } from "../../../../commons/libraries/utils";
 import { IProductDetaulUIProps } from "./ProductDetail.types";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
-import KakaoMap02 from "../../../commons/kakaoMap/02";
-import Button01 from "../../../commons/buttons/01";
-import Button03 from "../../../commons/buttons/03";
+import KakaoMap from "../../../commons/kakaoMap";
 
 export default function ProductDetailUI(props: IProductDetaulUIProps) {
   return (
@@ -80,7 +78,7 @@ export default function ProductDetailUI(props: IProductDetaulUIProps) {
         {/* 지도 */}
         <S.Map>
           <div>직거래 장소📌</div>
-          <KakaoMap02
+          <KakaoMap
             tradeLat={props.data?.fetchUseditem.useditemAddress?.lat}
             tradeLng={props.data?.fetchUseditem.useditemAddress?.lng}
             tradeAddress={props.data?.fetchUseditem.useditemAddress?.address}

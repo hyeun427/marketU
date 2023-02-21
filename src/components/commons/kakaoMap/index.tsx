@@ -3,31 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { Maybe } from "graphql/jsutils/Maybe";
-import { breakPoints } from "../../../../commons/styles/media";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
-
-const Title = styled.h2`
-  padding-bottom: 0.5rem;
-  width: 100%;
-  text-align: left;
-`;
-
-const Div = styled.div`
-  width: 100%;
-  aspect-ratio: 3;
-  border-radius: 1rem;
-
-  @media ${breakPoints.tablet} {
-    aspect-ratio: 2.5;
-  }
-
-  @media ${breakPoints.mobile} {
-    aspect-ratio: 2;
-  }
-`;
 
 const TradeDetail = styled.p`
   padding-top: 0.5rem;
@@ -41,7 +20,7 @@ const TradeDetail = styled.p`
   }
 `;
 
-export default function KakaoMap02(props: {
+export default function KakaoMap(props: {
   tradeLat?: Maybe<number>;
   tradeLng?: Maybe<number>;
   tradeAddress?: Maybe<string>;
@@ -92,8 +71,6 @@ export default function KakaoMap02(props: {
 
   return (
     <>
-      {/* <Title>직거래 위치</Title>
-      <Div ref={container}></Div> */}
       <TradeDetail>
         <span>
           {props.tradeAddress} {props.tradeAddressDetail}

@@ -53,6 +53,17 @@ export const Left = styled.div`
   }
 `;
 
+export const Image1 = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
+export const Image2 = styled.img`
+  width: 35px;
+  height: 38px;
+  margin-right: 10px;
+`;
+
 export const Right = styled.div`
   display: flex;
   justify-content: center;

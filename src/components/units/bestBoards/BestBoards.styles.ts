@@ -111,6 +111,8 @@ export const ImageWrapper = styled.div`
   }
 `;
 
+export const Image = styled.img``;
+
 export const NoImage = styled.img`
   padding: 1rem;
   filter: grayscale(1);
@@ -139,11 +141,9 @@ export const ContentsUser = styled.div`
   span {
     display: block;
 
-    :first-of-type {
-      text-decoration: underline;
-    }
-
     :last-of-type {
+      margin-top: 3px;
+      font-size: 15px;
       color: #848484;
     }
   }

@@ -54,7 +54,7 @@ export default function UseditemsISold(props: {
               <S.ImageContainer>
                 <S.ImageWrapper>
                   {(el?.images.filter((e: any) => e !== "")[0] && (
-                    <img
+                    <S.Image1
                       src={`https://storage.googleapis.com/${
                         el.images.filter((e: any) => e !== "")[0]
                       }`}
@@ -67,12 +67,7 @@ export default function UseditemsISold(props: {
                 <h1>{el?.name}</h1>
                 <S.ContentsUser>
                   <div>
-                    <img
-                      src="/img/icon/smile.png"
-                      alt=""
-                      width="40"
-                      height="40"
-                    />
+                    <S.Image2 src="/img/icon/smile.png" alt="" />
                   </div>
                   <div>
                     <span>{el.seller?.name}</span>
@@ -81,13 +76,13 @@ export default function UseditemsISold(props: {
                 </S.ContentsUser>
                 <S.ContentsReact>
                   <div>
-                    <img src="/img/icon/heart.svg" alt="찜" />
+                    <S.Image3 src="/img/icon/pick.png" alt="찜" />
                     <span>{el?.pickedCount}</span>
                   </div>
                 </S.ContentsReact>
                 <S.ContentsPrice>
                   <span>
-                    <b>{"₩ " + getPrice(el?.price)}</b>
+                    <b>{getPrice(el?.price)}</b>
                   </span>
 
                   <span>{el.tags}</span>

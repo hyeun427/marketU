@@ -83,6 +83,11 @@ export const Button = styled.button`
   }
 `;
 
+// 연필이미지
+export const Image = styled.img`
+  width: 20px;
+`;
+
 // 리스트
 export const TableTop = styled.div`
   border-top: 2px solid gray;
