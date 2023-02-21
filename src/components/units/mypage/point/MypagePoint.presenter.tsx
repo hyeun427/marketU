@@ -27,7 +27,12 @@ export default function MypagePointUI(props: IMypagePointUI) {
         </span>
       </S.Left>
       <S.Right>
-        <img src="/img/icon/wallet.png" width="35" height="38" />
+        <img
+          src="/img/icon/cash.png"
+          width="35"
+          height="38"
+          style={{ marginRight: 10 }}
+        />
         <div>
           <span>보유금액</span>
           <span>
@@ -36,12 +41,7 @@ export default function MypagePointUI(props: IMypagePointUI) {
           </span>
         </div>
         <S.ButtonWrapper>
-          <Button01
-            type="button"
-            title="충전하기"
-            style={{ padding: "0.5rem 2.5rem" }}
-            onClick={onToggleModal}
-          />
+          <Button01 type="button" text={"충전하기"} onClick={onToggleModal} />
         </S.ButtonWrapper>
       </S.Right>
     </S.Wrapper>

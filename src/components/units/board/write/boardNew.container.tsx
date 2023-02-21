@@ -141,7 +141,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
             },
           },
         });
-        console.log(result, "등록값확인");
         Modal.success({
           content: "게시물 등록에 성공하였습니다!상세 페이지로 이동합니다.",
         });

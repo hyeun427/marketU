@@ -30,6 +30,10 @@ export const MainInput = styled.input`
   ::placeholder {
     font-size: 15px;
   }
+  :focus {
+    outline: 1px solid #ff9f9e;
+    border: none;
+  }
 `;
 
 export const Error = styled.div`
@@ -61,6 +65,10 @@ export const Button = styled.button`
     border: none;
     transition: ease all 0.5s;
     color: #fff;
+  }
+  :focus {
+    outline: 1px solid #ff9f9e;
+    border: none;
   }
 `;
 

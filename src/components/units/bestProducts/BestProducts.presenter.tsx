@@ -2,7 +2,6 @@ import * as S from "./BestProducts.styles";
 import { timeForDay, getPrice } from "../../../commons/libraries/utils";
 import { v4 as uuidv4 } from "uuid";
 import { IBestProductsUI } from "./BestProducts.types";
-import button02 from "../../commons/buttons/02";
 import Button02 from "../../commons/buttons/02";
 
 export default function BestProductsUI(props: IBestProductsUI) {

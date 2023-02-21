@@ -20,7 +20,6 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <S.InputWrapper>
             <S.Label>작성자</S.Label>
             <S.Writer>{props.loginUser?.fetchUserLoggedIn.name}</S.Writer>
-
             <S.Error>{props.writerError}</S.Error>
           </S.InputWrapper>
           <S.InputWrapper>
@@ -94,42 +93,43 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           />
         </S.InputWrapper>
 
-        <S.ImageWrapper>
+        <S.ImagesWrapper>
           <S.Label>사진첨부</S.Label>
-
-          {props.fileUrls.map((el: any, index: number) => {
-            if (index !== 0 && props.fileUrls[index - 1] !== "")
-              return (
-                <div>
-                  <Upload
-                    type="button"
-                    key={uuidv4()}
-                    index={index}
-                    fileUrl={el}
-                    onChangeFileUrls={props.onChangeFileUrls}
-                  />
-                  <S.DeleteBtn
-                    onClick={props.onClickDeleteImage(index)}
-                  ></S.DeleteBtn>
-                </div>
-              );
-            if (index === 0)
-              return (
-                <div>
-                  <Upload
-                    type="button"
-                    key={uuidv4()}
-                    index={index}
-                    fileUrl={el}
-                    onChangeFileUrls={props.onChangeFileUrls}
-                  />
-                  <S.DeleteBtn
-                    onClick={props.onClickDeleteImage(index)}
-                  ></S.DeleteBtn>
-                </div>
-              );
-          })}
-        </S.ImageWrapper>
+          <S.ImageWrapper>
+            {props.fileUrls.map((el: any, index: number) => {
+              if (index !== 0 && props.fileUrls[index - 1] !== "")
+                return (
+                  <S.UploadWrapper>
+                    <Upload
+                      type="button"
+                      key={uuidv4()}
+                      index={index}
+                      fileUrl={el}
+                      onChangeFileUrls={props.onChangeFileUrls}
+                    />
+                    <S.DeleteBtn onClick={props.onClickDeleteImage(index)}>
+                      x
+                    </S.DeleteBtn>
+                  </S.UploadWrapper>
+                );
+              if (index === 0)
+                return (
+                  <S.UploadWrapper>
+                    <Upload
+                      type="button"
+                      key={uuidv4()}
+                      index={index}
+                      fileUrl={el}
+                      onChangeFileUrls={props.onChangeFileUrls}
+                    />
+                    <S.DeleteBtn onClick={props.onClickDeleteImage(index)}>
+                      x
+                    </S.DeleteBtn>
+                  </S.UploadWrapper>
+                );
+            })}
+          </S.ImageWrapper>
+        </S.ImagesWrapper>
 
         <S.ButtonWrapper>
           <S.SubmitButton

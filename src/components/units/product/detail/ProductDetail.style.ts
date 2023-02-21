@@ -65,7 +65,7 @@ export const PickWrapper = styled.div`
   text-align: center;
 `;
 export const PickIcon = styled.img`
-  width: 90%;
+  width: 30px;
   cursor: pointer;
 `;
 

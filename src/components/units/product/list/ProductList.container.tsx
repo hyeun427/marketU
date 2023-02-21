@@ -34,7 +34,6 @@ export default function ProductList() {
 
   // 제품 사진 눌렀을 때 디테일 페이지 이동
   const onClickMoveDetail = () => (event: MouseEvent<HTMLDivElement>) => {
-    console.log(event.target, "??");
     router.push(`/products/${event.currentTarget.id}`);
   };
 

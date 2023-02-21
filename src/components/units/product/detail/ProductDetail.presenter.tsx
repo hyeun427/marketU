@@ -4,6 +4,8 @@ import { IProductDetaulUIProps } from "./ProductDetail.types";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 import KakaoMap02 from "../../../commons/kakaoMap/02";
+import Button01 from "../../../commons/buttons/01";
+import Button03 from "../../../commons/buttons/03";
 
 export default function ProductDetailUI(props: IProductDetaulUIProps) {
   return (

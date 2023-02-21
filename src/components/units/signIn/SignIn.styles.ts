@@ -37,6 +37,10 @@ export const MainInput = styled.input`
   width: 100%;
   border-radius: 16px;
   border: 1px solid gray;
+  :focus {
+    outline: 1px solid #ff9f9e;
+    border: none;
+  }
 `;
 
 export const Require = styled.div`
@@ -58,4 +62,8 @@ export const SignInButton = styled.button`
   height: 64px;
   border-radius: 16px;
   cursor: pointer;
+  :focus {
+    outline: 1px solid #ff9f9e;
+    border: none;
+  }
 `;
