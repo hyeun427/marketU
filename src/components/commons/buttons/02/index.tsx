@@ -24,10 +24,6 @@ const Button = styled.button`
 `;
 
 export default function Button02(props: IButtonComponent) {
-  const { style, text } = props;
-  return (
-    <Button style={style || {}} onClick={props.onClick}>
-      {text}
-    </Button>
-  );
+  const { text } = props;
+  return <Button onClick={props.onClick}>{text}</Button>;
 }

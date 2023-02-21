@@ -60,7 +60,7 @@ export default function ProductListUI(props: IProductListUI) {
                   </S.ItemPrice>
                 </S.ItemInfo>
               </S.ItemWrapper>
-            ))}
+            )) || <></>}
           </Infinite>
         </S.ItemListWrapper>
       </S.ProductListWrapper>

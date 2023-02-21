@@ -1,24 +1,28 @@
-import { buttonCss } from "./styles";
+import styled from "@emotion/styled";
 
-interface IProps {
-  disabled?: boolean;
-  title: string;
-  type?: "button" | "submit";
+interface IButtonComponent {
+  text: string;
   onClick?: (...args: any) => void;
-  style?: {
-    [key: string]: string | number;
-  };
 }
 
-export default function Button01(props: IProps) {
-  return (
-    <button
-      type={props.type || "button"}
-      onClick={props.onClick}
-      disabled={props.disabled}
-      css={[buttonCss.default, buttonCss[props.title], props.style]}
-    >
-      {props.title}
-    </button>
-  );
+const Button = styled.button`
+  width: 80px;
+  height: 30px;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 0px 12px;
+  cursor: pointer;
+  :hover {
+    background-color: #ff9f9e;
+    border: none;
+    transition: ease all 0.5s;
+    color: #fff;
+  }
+`;
+
+export default function Button01(props: IButtonComponent) {
+  const { text } = props;
+  return <Button onClick={props.onClick}>{text}</Button>;
 }

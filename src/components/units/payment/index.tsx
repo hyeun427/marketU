@@ -94,7 +94,7 @@ export default function Payment(props: { onToggleModal: () => void }) {
       <S.ButtonWrapper>
         <Button01
           type="button"
-          title="충전하기"
+          text={"충전하기"}
           onClick={requestPay}
           style={{ padding: "0.5rem 2.5rem" }}
         />

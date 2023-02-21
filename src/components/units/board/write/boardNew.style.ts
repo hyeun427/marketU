@@ -30,6 +30,16 @@ export const WriterWrapper = styled.div`
   padding-top: 40px;
 `;
 
+export const InputWrapper = styled.div`
+  padding-top: 40px;
+`;
+
+export const Label = styled.div`
+  padding-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
 export const Writer = styled.div`
   width: 486px;
   height: 52px;
@@ -40,21 +50,17 @@ export const Writer = styled.div`
   align-items: center;
 `;
 
+export const Error = styled.div`
+  padding-top: 10px;
+  font-size: 14px;
+  color: red;
+`;
+
 export const Password = styled.input`
   width: 486px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
-`;
-
-export const Label = styled.div`
-  padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 500;
-`;
-
-export const InputWrapper = styled.div`
-  padding-top: 40px;
 `;
 
 export const Subject = styled.input`
@@ -108,34 +114,45 @@ export const Youtube = styled.input`
   border: 1px solid #bdbdbd;
 `;
 
+export const ImagesWrapper = styled.div`
+  width: 996px;
+  padding-top: 40px;
+`;
+
 export const ImageWrapper = styled.div`
-  width: 996px;
-  padding-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
-export const UploadButton = styled.button`
-  width: 78px;
-  height: 78px;
-  background-color: #bdbdbd;
-  margin-right: 24px;
-  outline: none;
+export const UploadWrapper = styled.div`
+  margin-right: 30px;
+  width: 30%;
+  height: 250px;
+  cursor: pointer;
+  position: relative;
+  div:last-of-type {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+
+  &:last-of-type {
+    div:last-of-type {
+      display: none;
+    }
+  }
+`;
+
+export const DeleteBtn = styled.button`
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 15px;
   border: none;
-  cursor: pointer;
-`;
-
-export const OptionWrapper = styled.div`
-  width: 996px;
-  padding-top: 40px;
-`;
-
-export const RadioButton = styled.input`
-  cursor: pointer;
-`;
-
-export const RadioLabel = styled.label`
-  margin-left: 8px;
-  margin-right: 20px;
-  font-weight: 500;
+  background: none;
   cursor: pointer;
 `;
 
@@ -172,48 +189,4 @@ export const CancelButton = styled.button`
   :hover {
     background-color: #ffc6ce;
   }
-`;
-
-export const Error = styled.div`
-  padding-top: 10px;
-  font-size: 14px;
-  color: red;
-`;
-
-export const ImagesWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-
-export const UploadImage = styled.div`
-  position: relative;
-`;
-export const UploadImageDelete = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2rem;
-  height: 2rem;
-  padding: 5px;
-  background-color: #ffffffbb;
-  border-radius: 50%;
-  cursor: pointer;
-
-  :hover {
-    background-color: #ffcf07bb;
-  }
-`;
-
-export const DeleteBtn = styled.button`
-  position: absolute;
-  top: 0;
-  right: 15px;
-  width: 30px;
-  border: none;
-  background: none;
-  color: black;
-  font-size: 20px;
-  cursor: pointer;
 `;
