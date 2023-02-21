@@ -73,7 +73,7 @@ export default function Payment(props: { onToggleModal: () => void }) {
         ></script>
       </Head>
       <S.CloseButtonWrapper>
-        <img src="/img/icon/icon_close.svg" onClick={props.onToggleModal} />
+        <S.Close src="/img/icon/delete.png" onClick={props.onToggleModal} />
       </S.CloseButtonWrapper>
       <S.InputWrapper>
         <input

@@ -34,6 +34,7 @@ export const PageNumber = styled.div`
     span {
       color: #e50101;
       text-decoration: underline;
+      text-underline-position: under;
     }
   }
 `;

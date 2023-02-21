@@ -33,7 +33,7 @@ export default function BestBoardsUI(props: IBestBoardsUIProps) {
               <S.ImageContainer>
                 <S.ImageWrapper>
                   {(el?.images.filter((e: any) => e !== "")[0] && (
-                    <img
+                    <S.Image
                       src={`https://storage.googleapis.com/${
                         el.images.filter((e: any) => e !== "")[0]
                       }`}
@@ -45,7 +45,7 @@ export default function BestBoardsUI(props: IBestBoardsUIProps) {
                 <h1>{el.title}</h1>
                 <S.ContentsUser>
                   <div>
-                    <img
+                    <S.Image
                       src="/img/icon/smile.png"
                       alt=""
                       width="40"
@@ -59,11 +59,11 @@ export default function BestBoardsUI(props: IBestBoardsUIProps) {
                 </S.ContentsUser>
                 <S.ContentsReact>
                   <div>
-                    <img src="/img/icon/icon_like_01.svg" alt="좋아요" />
+                    <S.Image src="/img/icon/icon_like_01.svg" alt="좋아요" />
                     <span>{el.likeCount}</span>
                   </div>
                   <div>
-                    <img src="/img/icon/icon_like_01.svg" alt="싫어요" />
+                    <S.Image src="/img/icon/icon_like_01.svg" alt="싫어요" />
                     <span>{el.dislikeCount}</span>
                   </div>
                 </S.ContentsReact>

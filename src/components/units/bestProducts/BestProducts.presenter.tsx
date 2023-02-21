@@ -34,7 +34,7 @@ export default function BestProductsUI(props: IBestProductsUI) {
                 <S.ImageContainer>
                   <S.ImageWrapper>
                     {(el?.images.filter((e: any) => e !== "")[0] && (
-                      <img
+                      <S.Image
                         src={`https://storage.googleapis.com/${
                           el.images.filter((e: any) => e !== "")[0]
                         }`}
@@ -49,12 +49,7 @@ export default function BestProductsUI(props: IBestProductsUI) {
                   <h1>{el?.name}</h1>
                   <S.ContentsUser>
                     <div>
-                      <img
-                        src="/img/icon/smile.png"
-                        alt=""
-                        width="40"
-                        height="40"
-                      />
+                      <S.Image1 src="/img/icon/smile.png" alt="" />
                     </div>
                     <div>
                       <span>{el.seller?.name}</span>
@@ -63,13 +58,13 @@ export default function BestProductsUI(props: IBestProductsUI) {
                   </S.ContentsUser>
                   <S.ContentsReact>
                     <div>
-                      <img src="/img/icon/heart.svg" alt="찜" />
+                      <S.Image2 src="/img/icon/pick.png" alt="찜" />
                       <span>{el?.pickedCount}</span>
                     </div>
                   </S.ContentsReact>
                   <S.ContentsPrice>
                     <span>
-                      <b>{"₩ " + getPrice(el?.price)}</b>
+                      <b>{getPrice(el?.price)}</b>
                     </span>
                   </S.ContentsPrice>
                 </S.ContentsWrapper>

@@ -58,6 +58,10 @@ export const Detail = styled.div`
   align-items: center;
 `;
 
+export const Image = styled.img`
+  width: 32px;
+`;
+
 export const Button1 = styled.button`
   padding-top: 6px;
   padding-right: 10px;
