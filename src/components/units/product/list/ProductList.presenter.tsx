@@ -55,9 +55,7 @@ export default function ProductListUI(props: IProductListUI) {
                 <S.ItemInfo>
                   <S.ItemDetailName>{el.name}</S.ItemDetailName>
                   <S.ItemDetailRemarks>{el.remarks}</S.ItemDetailRemarks>
-                  <S.ItemPrice>
-                    {`${el.price.toLocaleString("ko-KR")}원`}
-                  </S.ItemPrice>
+                  <S.ItemPrice>{`${el.price}원`}</S.ItemPrice>
                 </S.ItemInfo>
               </S.ItemWrapper>
             )) || <></>}

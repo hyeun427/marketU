@@ -1,7 +1,5 @@
 import ProductWriteUI from "./ProductWrite.presenter";
 import { useForm } from "react-hook-form";
-import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
 import { IProductWriteProps } from "./ProductWrite.types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,8 +13,6 @@ import { useRouter } from "next/router";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
 
-// 에디터
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const schema = yup.object({
   name: yup.string().required("상품명은 필수항목입니다."),
   remarks: yup.string().required("한줄 요약은 필수항목입니다."),
@@ -48,18 +44,18 @@ export default function ProductWrite(props: IProductWriteProps) {
   });
 
   // 이미지
-  const [fileUrls, setFileUrls] = useState<string[]>(["", ""]);
-
+  const [fileUrls, setFileUrls] = useState<string[]>([""]);
   // 작성된 컨텐츠 정보 불러오기
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router?.query.productsId },
   });
 
   // form
-  const { register, handleSubmit, formState, setValue, trigger } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
+  const { register, handleSubmit, formState, setValue, trigger, reset } =
+    useForm({
+      mode: "onChange",
+      resolver: yupResolver(schema),
+    });
 
   // form내 에디터 부분 - 상품설명 onChange
   const onChangeContents = (value: string) => {
@@ -68,14 +64,12 @@ export default function ProductWrite(props: IProductWriteProps) {
   };
 
   // 태그
-  const onKeyUpHash = (event: any) => {
+  const onKeyUpHash = (event) => {
     if (event.keyCode === 32 && event.target.value !== " ") {
       setHashArr([...hashArr, "#" + event.target.value]);
       event.target.value = "";
     }
   };
-
-  useEffect(() => {}, [hashArr]);
 
   // 태그 삭제
   const onClickDeleteTag = (tag: string) => () => {
@@ -141,15 +135,40 @@ export default function ProductWrite(props: IProductWriteProps) {
     }
   };
 
+  // 수정 진입시 초기값 설정
+  useEffect(() => {
+    if (!props.data) return;
+    reset({
+      contents: props.data?.fetchUseditem?.contents,
+      name: props.data?.fetchUseditem.name,
+      price: props.data?.fetchUseditem.price,
+      remarks: props.data?.fetchUseditem.remarks,
+      images: props.data?.fetchUseditem.images,
+      addressDetail: props.data?.fetchUseditem.useditemAddress?.addressDetail,
+      lat: props.data?.fetchUseditem.useditemAddress?.lat,
+      lng: props.data?.fetchUseditem.useditemAddress?.lng,
+      address: props.data?.fetchUseditem.useditemAddress?.address,
+      zipcode: props.data?.fetchUseditem.useditemAddress?.zipcode,
+    });
+    setHashArr(props.data?.fetchUseditem?.tags || []);
+    setFileUrls(props.data?.fetchUseditem?.images);
+  }, [props.data]);
+
   // 상품 수정하기
   const onClickUpdate = async (data: any) => {
     const currentFiles = JSON.stringify(fileUrls);
     const defaultFiles = JSON.stringify(props.data?.fetchUseditem.images);
     const isChangeFiles = currentFiles !== defaultFiles;
+    if (
+      !data.name &&
+      !data.remarks &&
+      !data.contents &&
+      !data.price &&
+      !isChangeFiles
+    ) {
+    }
 
     const editHashArr = [...props.data?.fetchUseditem.tags, ...hashArr];
-    const updateUseditemInput = {};
-    if (isChangeFiles) updateUseditemInput.images = fileUrls;
 
     try {
       const editResult = await updateUseditem({
@@ -191,18 +210,12 @@ export default function ProductWrite(props: IProductWriteProps) {
       formState={formState}
       setValue={setValue}
       trigger={trigger}
-      // 에디터
-      ReactQuill={ReactQuill}
       onChangeContents={onChangeContents}
       // 지도
       isOpen={isOpen}
       address={address}
       zipcode={zipcode}
       addressDetail={addressDetail}
-      setGps={setGps}
-      gps={gps}
-      lat={lat}
-      lng={lng}
       onClickPostCode={onClickPostCode}
       onClickModal={onClickModal}
       onChangeAddressDetail={onChangeAddressDetail}

@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css";
 import { breakPoints } from "../../../../commons/styles/media";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const Wrapper = styled.div`
   width: 70vw;
@@ -85,7 +89,9 @@ export const Input = styled.input`
   margin-top: 2px;
   padding-left: 10px;
   outline: none;
-
+  ::placeholder {
+    font-size: 12px;
+  }
   @media ${breakPoints.tablet} {
   }
   @media ${breakPoints.mobile} {
@@ -99,7 +105,7 @@ export const Input = styled.input`
 export const Error = styled.div`
   margin: 2px 0px;
   padding-left: 10px;
-  font-size: 10px;
+  font-size: 11px;
   color: red;
   @media ${breakPoints.tablet} {
     font-size: 7px;
@@ -119,7 +125,8 @@ export const InnerWrapeer = styled.div`
   }
 `;
 
-export const ReactQuillWrapper = styled.div`
+export const Quill = styled(ReactQuill)`
+  height: 220px;
   .ql-container {
     height: 180px;
   }

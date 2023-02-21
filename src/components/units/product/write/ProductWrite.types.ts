@@ -1,12 +1,10 @@
-import { ComponentType } from "react";
 import {
   FieldValues,
   UseFormHandleSubmit,
   UseFormRegister,
   UseFormReset,
-  UseFormStateReturn,
 } from "react-hook-form";
-import ReactQuill from "react-quill";
+import { FormState } from "react-hook-form/dist/types";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface FormValues {
@@ -22,20 +20,19 @@ export interface FormValues {
 }
 
 export interface IProductWriteUIProps {
-  ReactQuill: ComponentType<ReactQuill.ComponentProps>;
-  register: UseFormRegister<FormValues>;
+  register: UseFormRegister<FieldValues>;
+  formState: FormState<FormValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
-  formState: UseFormStateReturn<FieldValues>;
   setValue: any;
-  getValues: any;
   trigger: any;
-  reset: UseFormReset<FormValues>;
+  // getValues: any;
+  // reset: UseFormReset<FormValues>;
   data?: Pick<IQuery, "fetchUseditem">;
   data1?: Pick<IQuery, "fetchUseditem">;
   isEdit: Boolean;
   fileUrls: string[];
-  onClickSubmit: (data: FormValues) => void;
-  onClickUpdate: (data: FormValues) => void;
+  onClickSubmit: (data: any) => void;
+  onClickUpdate: (data: any) => void;
   onChangeContents: (value: string) => void;
   onChangeFileUrls: (fileUrls: string, index: number) => void;
   onClickDeleteImage: (arg: any) => () => void;
@@ -49,6 +46,7 @@ export interface IProductWriteUIProps {
   onClickModal: () => void;
   onClickPostCode: (data: any) => void;
   onChangeAddressDetail: (event: any) => void;
+  onClickDeleteTag: (tag: string) => () => void;
 }
 
 export interface IProductWriteProps {
