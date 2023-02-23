@@ -53,8 +53,9 @@ export default function SignInPage() {
   };
 
   // 비밀번호 입력
+  // const onChangePassword = (event: any) => {
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    let pw1 = document.getElementById("pw").value;
+    let pw1 = (document.getElementById("pw") as HTMLInputElement).value;
     setPassword(pw1);
     if (pw1 !== "") {
       setPasswordError("");
@@ -70,7 +71,7 @@ export default function SignInPage() {
 
   // 비밀번호 확인칸 입력
   const onChangePasswordCheck = (event: ChangeEvent<HTMLInputElement>) => {
-    let pw2 = document.getElementById("pwcheck").value;
+    let pw2 = (document.getElementById("pwcheck") as HTMLInputElement).value;
     if (pw2 === password) {
       setPasswordSameCheckError("");
       setPasswordCheck(true);

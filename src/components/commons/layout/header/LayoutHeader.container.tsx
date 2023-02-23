@@ -13,8 +13,8 @@ import {
 export default function LayoutHeader() {
   const router = useRouter();
   const [logoutUser] = useMutation(LOGOUT_USER);
-  const accessToken = useRecoilValue(accessTokenState);
-  // const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  // const accessToken = useRecoilValue(accessTokenState);
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const { data: dataItemsCountIPicked } = useQuery<
     Pick<IQuery, "fetchUseditemsCountIPicked">
@@ -45,7 +45,7 @@ export default function LayoutHeader() {
         email: "",
         name: "",
       });
-      // setAccessToken("");
+      setAccessToken("");
       alert("로그아웃 하였습니다.");
       router.push("/");
     } catch (error) {

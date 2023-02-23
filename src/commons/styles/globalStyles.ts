@@ -9,12 +9,6 @@ export const globalStyles = css`
     font-family: "MyFont1";
   }
 
-  /* @font-face {
-    font-family: "MyHeader";
-    font-style: normal;
-    src: url("/fonts/BlackHanSans-Regular.woff") format("woff2");
-  } */
-
   @font-face {
     font-family: "MyFont1";
 
