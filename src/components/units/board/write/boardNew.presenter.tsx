@@ -80,6 +80,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             defaultValue={
               props.data?.fetchBoard.boardAddress?.addressDetail || ""
             }
+            placeholder="상세 주소를 써주세요."
           />
         </S.InputWrapper>
 

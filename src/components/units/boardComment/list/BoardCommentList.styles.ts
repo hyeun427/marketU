@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
 import { Rate } from "antd";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const ItemWrapper = styled.div`
-  width: 60%;
+  width: 100%;
   margin: 0px auto;
   padding-top: 20px;
   height: 120px;
   border-bottom: 1px solid #bdbdbd;
+  @media ${breakPoints.tablet} {
+    width: 90%;
+  }
+  @media ${breakPoints.mobile} {
+    width: 60%;
+  }
 `;
 
 export const FlexWrapper = styled.div`
@@ -38,6 +45,12 @@ export const Writer = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 10px;
+  @media ${breakPoints.tablet} {
+    font-size: 18px;
+  }
+  @media ${breakPoints.mobile} {
+    font-size: 15px;
+  }
 `;
 
 export const Contents = styled.div``;
