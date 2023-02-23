@@ -35,6 +35,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
 
         <S.BottomWrapper>
           <S.ContentsLength>{props.contents.length}/100</S.ContentsLength>
+
           <S.Button
             onClick={props.isEdit ? props.onClickUpdate : props.onClickWrite}
           >

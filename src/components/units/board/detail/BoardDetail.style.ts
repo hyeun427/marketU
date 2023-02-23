@@ -7,11 +7,12 @@ export const OutWrapper = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 60%;
+  width: 100%;
   margin: 50px auto;
 `;
 
 export const BoardWrapper = styled.div`
+  margin: 0px auto;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -19,6 +20,12 @@ export const BoardWrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
+  @media ${breakPoints.tablet} {
+    width: 90%;
+  }
+  @media ${breakPoints.mobile} {
+    width: 60%;
+  }
 `;
 
 // 작성자 관련 내용
@@ -76,65 +83,6 @@ export const Content = styled.div`
   padding: 20px 0px;
 `;
 
-export const Youtube = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const LikeWrapper = styled.div`
-  padding-top: 160px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-export const LikeIcon = styled(LikeOutlined)`
-  font-size: 24px;
-  color: #ff5554;
-
-  margin: 0px 10px 5px;
-  cursor: pointer;
-`;
-export const DislikeIcon = styled(DislikeOutlined)`
-  font-size: 24px;
-  color: #828282;
-  margin: 0px 10px 5px;
-  cursor: pointer;
-`;
-export const LikeCount = styled.div`
-  color: #828282;
-`;
-export const DislikeCount = styled.div`
-  color: #828282;
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 80px;
-`;
-
-export const Button = styled.button`
-  width: 150px;
-  height: 45px;
-  font-size: 14px;
-  background-color: white;
-  border: 1px solid gray;
-  border-radius: 15px;
-  margin: 0px 12px;
-  cursor: pointer;
-
-  :hover {
-    background-color: #ff9f9e;
-    border: none;
-    transition: ease all 0.5s;
-    color: #fff;
-  }
-`;
-
 // 이미지
 export const Images = styled.div`
   width: 100%;
@@ -148,4 +96,83 @@ export const Img = styled.img`
   width: 60%;
   object-fit: contain;
   margin-bottom: 10px;
+`;
+
+export const Youtube = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+//좋아요 싫어요 버튼
+export const LikeWrapper = styled.div`
+  margin: 50px 10px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const LikeIcon = styled(LikeOutlined)`
+  font-size: 24px;
+  color: #ff5554;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
+export const DislikeIcon = styled(DislikeOutlined)`
+  font-size: 24px;
+  color: #828282;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
+export const Count = styled.div`
+  color: #828282;
+  margin-top: 3px;
+  margin-right: 10px;
+`;
+export const DislikeCount = styled.div`
+  color: #828282;
+`;
+
+//버튼
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 80px;
+`;
+
+export const Button = styled.button`
+  width: 150px;
+  height: 40px;
+  margin: 30px 15px 0px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50px;
+  background-color: white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  outline: none;
+  cursor: pointer;
+  :hover {
+    background-color: #ff9f9e;
+    color: #ffffff;
+    transition: all 0.5s;
+  }
+  @media ${breakPoints.tablet} {
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+  }
+  @media ${breakPoints.mobile} {
+    width: 110px;
+    height: 30px;
+    font-size: 10px;
+    margin: 10px;
+  }
 `;
