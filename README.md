@@ -135,4 +135,5 @@ yarn install ⇒ yarn dev
 ![](https://velog.velcdn.com/images/hyeun427/post/619b9089-d521-4dc8-b58c-e8737dd56cd1/image.gif)
 
 **[mobile](max-width: 575px)**
+
 ![](https://velog.velcdn.com/images/hyeun427/post/2c6a84c9-5cf2-4a42-a49d-1fda5b07b6b5/image.gif)
