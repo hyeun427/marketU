@@ -12,8 +12,7 @@ yarn install ⇒ yarn dev
 
 ### 🎨 Figma 목업 & 디자인 작업
 
-<img src="./readme/0.figma.png" alt="피그마" />
-<img src="market-u\public\readme\0.figma.png" alt="피그마" />
+![](https://velog.io/@hyeun427/0.figma)
 
 - Figma 를 이용하여 웹페이지 전반을 디자인했습니다.
 
