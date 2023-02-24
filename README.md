@@ -12,7 +12,7 @@ yarn install ⇒ yarn dev
 
 ### 🎨 Figma 목업 & 디자인 작업
 
-![](https://velog.io/@hyeun427/0.figma)
+![](https://velog.velcdn.com/images/hyeun427/post/d00ba451-4dea-44e5-b025-d0f3a0e2219d/image.png)
 
 - Figma 를 이용하여 웹페이지 전반을 디자인했습니다.
 
